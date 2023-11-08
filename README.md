@@ -1,4 +1,5 @@
-![start-db-logo](https://github.com/gustavo-p0/desafio_db_grupo_03/assets/83771792/a51463ab-3015-4036-8a3c-3d6f6b7ef945)
+![start-db-logo](https://github.com/gustavo-p0/desafio_db_grupo_03/assets/83771792/aa2bb5ea-5f9c-46d8-b2a4-51f49b5b6ed1)
+
 
 # Desafio Start DB Grupo 03
 
@@ -23,6 +24,10 @@ O mapa de pontos de coleta permite que as pessoas interessadas localizem o ender
 Cada ponto é caracterizado por um nome, horário de funcionamento, dias de operação, localização e tipos de materiais que são aceitos. 
 
 O sistema desenvolvido deve ser capaz de, no mínimo, permitir a listagem e a filtragem dos pontos de coleta com base no tipo de material aceito, na região de atuação e nos dias de funcionamento. Também será possível cadastrar instituições administradoras e novos pontos de coleta.
+
+## Histórias de usuário
+
+![historias-de-usuario](Historias_de_usuario.png)
 
 ## Requisitos
 
