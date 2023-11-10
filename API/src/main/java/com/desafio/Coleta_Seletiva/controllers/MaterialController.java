@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.desafio.Coleta_Seletiva.dto.Material.MaterialCreateDTO;
+import com.desafio.Coleta_Seletiva.dto.Material.MaterialResponseDTO;
 import com.desafio.Coleta_Seletiva.dto.Material.mapper.MaterialMapper;
 import com.desafio.Coleta_Seletiva.entities.Material.Material;
 import com.desafio.Coleta_Seletiva.services.MaterialService;
@@ -25,8 +26,9 @@ public class MaterialController {
   }
 
   @PostMapping
-  public ResponseEntity<Material> create(@RequestBody MaterialCreateDTO materialDTO) {
+  public ResponseEntity<MaterialResponseDTO> create(@RequestBody MaterialCreateDTO materialDTO) {
     Material created = materialService.create(MaterialMapper.toMaterial(materialDTO));
-    return ResponseEntity.status(HttpStatus.CREATED).body(created);
+    return ResponseEntity.status(HttpStatus.CREATED).body(MaterialMapper.toDTO(created));
   }
+
 }
