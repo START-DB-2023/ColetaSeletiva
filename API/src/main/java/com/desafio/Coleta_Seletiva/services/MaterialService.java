@@ -18,4 +18,8 @@ public class MaterialService {
     this.materialRepository = materialRepository;
   }
 
+  public Material save(Material material) {
+    return materialRepository.save(material);
+  }
+
 }
