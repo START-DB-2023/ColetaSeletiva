@@ -18,7 +18,7 @@ public class MaterialService {
     this.materialRepository = materialRepository;
   }
 
-  public Material save(Material material) {
+  public Material create(Material material) {
     return materialRepository.save(material);
   }
 
