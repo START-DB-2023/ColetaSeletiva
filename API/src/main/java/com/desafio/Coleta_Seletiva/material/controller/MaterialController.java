@@ -1,4 +1,4 @@
-package com.desafio.Coleta_Seletiva.controllers;
+package com.desafio.Coleta_Seletiva.material.controller;
 
 import java.util.List;
 
@@ -14,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.desafio.Coleta_Seletiva.dto.Material.MaterialCreateDTO;
-import com.desafio.Coleta_Seletiva.dto.Material.MaterialDescriptionDTO;
-import com.desafio.Coleta_Seletiva.dto.Material.MaterialResponseDTO;
-import com.desafio.Coleta_Seletiva.dto.Material.mapper.MaterialMapper;
-import com.desafio.Coleta_Seletiva.entities.Material.Cor;
-import com.desafio.Coleta_Seletiva.entities.Material.Material;
-import com.desafio.Coleta_Seletiva.services.MaterialService;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialCreateDTO;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialDescriptionDTO;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialResponseDTO;
+import com.desafio.Coleta_Seletiva.material.dto.mapper.MaterialMapper;
+import com.desafio.Coleta_Seletiva.material.model.Cor;
+import com.desafio.Coleta_Seletiva.material.model.Material;
+import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 
 @RestController
 @RequestMapping("api/materiais")

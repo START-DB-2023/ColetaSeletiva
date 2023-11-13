@@ -1,6 +1,6 @@
-package com.desafio.Coleta_Seletiva.dto.Material;
+package com.desafio.Coleta_Seletiva.material.dto;
 
-import com.desafio.Coleta_Seletiva.entities.Material.Cor;
+import com.desafio.Coleta_Seletiva.material.model.Cor;
 
 public class MaterialResponseDTO {
   private long id;

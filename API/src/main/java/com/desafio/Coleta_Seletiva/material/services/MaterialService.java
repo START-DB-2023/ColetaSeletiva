@@ -1,4 +1,4 @@
-package com.desafio.Coleta_Seletiva.services;
+package com.desafio.Coleta_Seletiva.material.services;
 
 import java.util.List;
 
@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.desafio.Coleta_Seletiva.entities.Material.Material;
-import com.desafio.Coleta_Seletiva.repositories.MaterialRepository;
+import com.desafio.Coleta_Seletiva.material.model.Material;
+import com.desafio.Coleta_Seletiva.material.repositories.MaterialRepository;
 
 @Service
 public class MaterialService {

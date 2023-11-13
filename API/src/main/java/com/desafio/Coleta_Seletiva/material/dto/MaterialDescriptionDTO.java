@@ -1,4 +1,4 @@
-package com.desafio.Coleta_Seletiva.dto.Material;
+package com.desafio.Coleta_Seletiva.material.dto;
 
 public class MaterialDescriptionDTO {
   private String description;

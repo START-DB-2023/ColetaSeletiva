@@ -1,12 +1,12 @@
-package com.desafio.Coleta_Seletiva.dto.Material.mapper;
+package com.desafio.Coleta_Seletiva.material.dto.mapper;
 
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
 
-import com.desafio.Coleta_Seletiva.dto.Material.MaterialCreateDTO;
-import com.desafio.Coleta_Seletiva.dto.Material.MaterialResponseDTO;
-import com.desafio.Coleta_Seletiva.entities.Material.Material;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialCreateDTO;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialResponseDTO;
+import com.desafio.Coleta_Seletiva.material.model.Material;
 
 public class MaterialMapper {
   public static Material toMaterial(MaterialCreateDTO createDTO) {
