@@ -33,4 +33,8 @@ public class MaterialService {
     return materialRepository.findById(id).orElseThrow(() -> new RuntimeException());
   }
 
+  @Transactional
+  public void delete(Long id) {
+    materialRepository.deleteById(id);
+  }
 }
