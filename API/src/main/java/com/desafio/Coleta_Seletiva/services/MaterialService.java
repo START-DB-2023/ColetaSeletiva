@@ -28,4 +28,9 @@ public class MaterialService {
     return materialRepository.findAll();
   }
 
+  @Transactional(readOnly = true)
+  public Material findById(Long id) {
+    return materialRepository.findById(id).orElseThrow(() -> new RuntimeException());
+  }
+
 }
