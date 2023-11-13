@@ -10,6 +10,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.desafio.Coleta_Seletiva.exceptions.IntegrityViolationException;
+
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestControllerAdvice
@@ -23,5 +25,14 @@ public class APIExceptionHandler {
     log.error("API Error - ", exception);
     return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).contentType(MediaType.APPLICATION_JSON)
         .body(new ErrorMessage(request, HttpStatus.UNPROCESSABLE_ENTITY, "Campo(s) invalido(s)", result));
+  }
+
+  // Lida com exceções de integridade da entidade nas requisições
+  @ExceptionHandler(IntegrityViolationException.class)
+  public ResponseEntity<ErrorMessage> integrityViolationException(IntegrityViolationException exception,
+      HttpServletRequest request) {
+    log.error("API Error - ", exception);
+    return ResponseEntity.status(HttpStatus.CONFLICT).contentType(MediaType.APPLICATION_JSON)
+        .body(new ErrorMessage(request, HttpStatus.CONFLICT, exception.getMessage()));
   }
 }

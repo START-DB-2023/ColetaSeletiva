@@ -6,8 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.desafio.Coleta_Seletiva.exceptions.IntegrityViolationException;
 import com.desafio.Coleta_Seletiva.material.model.Material;
 import com.desafio.Coleta_Seletiva.material.repositories.MaterialRepository;
+import org.springframework.dao.DataIntegrityViolationException;
 
 @Service
 public class MaterialService {
@@ -21,7 +23,11 @@ public class MaterialService {
 
   @Transactional
   public Material create(Material material) {
-    return materialRepository.save(material);
+    try {
+      return materialRepository.save(material);
+    } catch (DataIntegrityViolationException e) {
+      throw new IntegrityViolationException("Violação das restrições da entidade");
+    }
   }
 
   @Transactional(readOnly = true)
