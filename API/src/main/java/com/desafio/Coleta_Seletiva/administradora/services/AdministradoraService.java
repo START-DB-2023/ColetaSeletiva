@@ -1,5 +1,4 @@
 package com.desafio.Coleta_Seletiva.administradora.services;
-
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -7,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.repositories.AdministradoraRepository;
+import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
 
 @Service
 public class AdministradoraService {
@@ -39,5 +39,20 @@ public class AdministradoraService {
 
     public void excluirAdministradora(Long id) {
         administradoraRepository.deleteById(id);
+    }
+
+    public Administradora atualizarAdministradora(Long id, Administradora novaAdministradora) {
+        Administradora administradoraExistente = obterAdministradoraPorId(id);
+
+        if (administradoraExistente != null) {
+            administradoraExistente.setNome(novaAdministradora.getNome());
+            administradoraExistente.setCidade(novaAdministradora.getCidade());
+            administradoraExistente.setEstado(novaAdministradora.getEstado());
+            administradoraExistente.setDescricao(novaAdministradora.getDescricao());
+
+            return administradoraRepository.save(administradoraExistente);
+        } else {
+            throw new AdministradoraNotFoundException("Administradora com ID " + id + " não encontrada");
+        }
     }
 }
