@@ -36,4 +36,8 @@ public class AdministradoraService {
         return administradoraRepository.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Administradora não encontrada"));
     }
+
+    public void excluirAdministradora(Long id) {
+        administradoraRepository.deleteById(id);
+    }
 }
