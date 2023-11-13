@@ -19,5 +19,6 @@ public class AdministradoraController {
     public Administradora obterAdministradoraPorId(@PathVariable Long id) {
         return administradoraService.obterAdministradoraPorId(id);
     }
+    
 
 }
