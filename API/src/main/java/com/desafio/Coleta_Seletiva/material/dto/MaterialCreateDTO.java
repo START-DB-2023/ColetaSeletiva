@@ -2,8 +2,12 @@ package com.desafio.Coleta_Seletiva.material.dto;
 
 import com.desafio.Coleta_Seletiva.material.model.Cor;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class MaterialCreateDTO {
+  @NotBlank
   private String nome;
+  @NotBlank
   private Cor cor;
   private String descricao;
 
