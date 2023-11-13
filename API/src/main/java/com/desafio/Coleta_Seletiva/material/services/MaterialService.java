@@ -19,6 +19,7 @@ public class MaterialService {
     this.materialRepository = materialRepository;
   }
 
+  @Transactional
   public Material create(Material material) {
     return materialRepository.save(material);
   }
