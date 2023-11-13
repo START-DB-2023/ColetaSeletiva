@@ -1,13 +1,13 @@
 package com.desafio.Coleta_Seletiva.material.dto;
 
 import com.desafio.Coleta_Seletiva.material.model.Cor;
-
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class MaterialCreateDTO {
   @NotBlank
   private String nome;
-  @NotBlank
+  @NotNull
   private Cor cor;
   private String descricao;
 

@@ -35,4 +35,13 @@ public class APIExceptionHandler {
     return ResponseEntity.status(HttpStatus.CONFLICT).contentType(MediaType.APPLICATION_JSON)
         .body(new ErrorMessage(request, HttpStatus.CONFLICT, exception.getMessage()));
   }
+
+  // Lida com exceções de argumentos ilegais
+  @ExceptionHandler(IllegalArgumentException.class)
+  public ResponseEntity<ErrorMessage> illegalArgumentException(IllegalArgumentException exception,
+      HttpServletRequest request) {
+    log.error("API Error - ", exception);
+    return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)
+        .body(new ErrorMessage(request, HttpStatus.BAD_REQUEST, exception.getMessage()));
+  }
 }

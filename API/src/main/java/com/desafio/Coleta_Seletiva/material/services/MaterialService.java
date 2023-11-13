@@ -25,6 +25,8 @@ public class MaterialService {
   public Material create(Material material) {
     try {
       return materialRepository.save(material);
+    } catch (IllegalArgumentException e) {
+      throw e;
     } catch (DataIntegrityViolationException e) {
       throw new IntegrityViolationException("Violação das restrições da entidade");
     }

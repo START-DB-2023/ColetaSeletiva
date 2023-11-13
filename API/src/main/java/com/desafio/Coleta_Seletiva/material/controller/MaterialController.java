@@ -22,6 +22,8 @@ import com.desafio.Coleta_Seletiva.material.model.Cor;
 import com.desafio.Coleta_Seletiva.material.model.Material;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("api/materiais")
 public class MaterialController {
@@ -33,7 +35,7 @@ public class MaterialController {
   }
 
   @PostMapping
-  public ResponseEntity<MaterialResponseDTO> create(@RequestBody MaterialCreateDTO materialDTO) {
+  public ResponseEntity<MaterialResponseDTO> create(@Valid @RequestBody MaterialCreateDTO materialDTO) {
     Material created = materialService.create(MaterialMapper.toMaterial(materialDTO));
     return ResponseEntity.status(HttpStatus.CREATED).body(MaterialMapper.toDTO(created));
   }
@@ -50,19 +52,19 @@ public class MaterialController {
   }
 
   @GetMapping("/{id}")
-  public ResponseEntity<MaterialResponseDTO> findById(@PathVariable long id) {
+  public ResponseEntity<MaterialResponseDTO> findById(@Valid @PathVariable long id) {
     Material material = materialService.findById(id);
     return ResponseEntity.ok().body(MaterialMapper.toDTO(material));
   }
 
   @DeleteMapping("/{id}")
-  public ResponseEntity<Void> delete(@PathVariable long id) {
+  public ResponseEntity<Void> delete(@Valid @PathVariable long id) {
     materialService.delete(id);
     return ResponseEntity.noContent().build();
   }
 
   @PatchMapping("/{id}")
-  public ResponseEntity<MaterialResponseDTO> updateDescription(@PathVariable long id,
+  public ResponseEntity<MaterialResponseDTO> updateDescription(@Valid @PathVariable long id,
       @RequestBody MaterialDescriptionDTO dto) {
     Material material = materialService.updateDescription(id, dto.getDescription());
     return ResponseEntity.ok().body(MaterialMapper.toDTO(material));
