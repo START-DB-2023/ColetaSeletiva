@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.desafio.Coleta_Seletiva.exceptions.EntityNotFoundException;
 import com.desafio.Coleta_Seletiva.exceptions.IntegrityViolationException;
 import com.desafio.Coleta_Seletiva.material.model.Material;
 import com.desafio.Coleta_Seletiva.material.repositories.MaterialRepository;
@@ -39,7 +40,8 @@ public class MaterialService {
 
   @Transactional(readOnly = true)
   public Material findById(Long id) {
-    return materialRepository.findById(id).orElseThrow(() -> new RuntimeException());
+    return materialRepository.findById(id)
+        .orElseThrow(() -> new EntityNotFoundException(String.format("Material id: {%d} não encontrado", id)));
   }
 
   @Transactional

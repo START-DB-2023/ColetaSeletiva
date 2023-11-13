@@ -10,6 +10,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import com.desafio.Coleta_Seletiva.exceptions.EntityNotFoundException;
 import com.desafio.Coleta_Seletiva.exceptions.IntegrityViolationException;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,5 +44,13 @@ public class APIExceptionHandler {
     log.error("API Error - ", exception);
     return ResponseEntity.status(HttpStatus.BAD_REQUEST).contentType(MediaType.APPLICATION_JSON)
         .body(new ErrorMessage(request, HttpStatus.BAD_REQUEST, exception.getMessage()));
+  }
+
+  @ExceptionHandler(EntityNotFoundException.class)
+  public ResponseEntity<ErrorMessage> entityNotFoundException(EntityNotFoundException exception,
+      HttpServletRequest request) {
+    log.error("API ERROR - ", exception);
+    return ResponseEntity.status(HttpStatus.NOT_FOUND).contentType(MediaType.APPLICATION_JSON)
+        .body(new ErrorMessage(request, HttpStatus.NOT_FOUND, exception.getMessage()));
   }
 }
