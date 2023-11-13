@@ -34,6 +34,13 @@ public class MaterialService {
   }
 
   @Transactional
+  public Material updateDescription(Long id, String description) {
+    Material material = findById(id);
+    material.setDescricao(description);
+    return material;
+  }
+
+  @Transactional
   public void delete(Long id) {
     materialRepository.deleteById(id);
   }
