@@ -18,6 +18,9 @@ public class Administradora implements Serializable {
     private Long id;
 
     @Column(nullable = false)
+    private boolean ativo = true;
+
+    @Column(nullable = false)
     private String nome;
 
     @Column(nullable = false)
@@ -77,6 +80,14 @@ public class Administradora implements Serializable {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
     }
 
 }
