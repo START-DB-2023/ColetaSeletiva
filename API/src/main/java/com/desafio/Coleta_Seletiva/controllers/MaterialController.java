@@ -18,6 +18,7 @@ import com.desafio.Coleta_Seletiva.dto.Material.MaterialCreateDTO;
 import com.desafio.Coleta_Seletiva.dto.Material.MaterialDescriptionDTO;
 import com.desafio.Coleta_Seletiva.dto.Material.MaterialResponseDTO;
 import com.desafio.Coleta_Seletiva.dto.Material.mapper.MaterialMapper;
+import com.desafio.Coleta_Seletiva.entities.Material.Cor;
 import com.desafio.Coleta_Seletiva.entities.Material.Material;
 import com.desafio.Coleta_Seletiva.services.MaterialService;
 
@@ -35,6 +36,11 @@ public class MaterialController {
   public ResponseEntity<MaterialResponseDTO> create(@RequestBody MaterialCreateDTO materialDTO) {
     Material created = materialService.create(MaterialMapper.toMaterial(materialDTO));
     return ResponseEntity.status(HttpStatus.CREATED).body(MaterialMapper.toDTO(created));
+  }
+
+  @GetMapping("/cores")
+  public ResponseEntity<List<Cor>> getAllColors() {
+    return ResponseEntity.ok().body(List.of(Cor.class.getEnumConstants()));
   }
 
   @GetMapping
