@@ -1,4 +1,4 @@
-package com.desafio.Coleta_Seletiva.entities.Material;
+package com.desafio.Coleta_Seletiva.material.model;
 
 public enum Cor {
   CINZA,
