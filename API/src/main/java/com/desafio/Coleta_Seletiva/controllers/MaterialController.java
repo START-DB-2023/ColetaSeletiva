@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +38,12 @@ public class MaterialController {
   public ResponseEntity<List<MaterialResponseDTO>> getAll() {
     List<Material> materials = materialService.findAll();
     return ResponseEntity.status(HttpStatus.OK).body(MaterialMapper.toListDTO(materials));
+  }
+
+  @GetMapping("/{id}")
+  public ResponseEntity<MaterialResponseDTO> findById(@PathVariable long id) {
+    Material material = materialService.findById(id);
+    return ResponseEntity.ok().body(MaterialMapper.toDTO(material));
   }
 
 }
