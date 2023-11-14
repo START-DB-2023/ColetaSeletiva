@@ -8,6 +8,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "administradoras")
@@ -21,14 +23,21 @@ public class Administradora implements Serializable {
     private boolean ativo = true;
 
     @Column(nullable = false)
+    @NotBlank(message = "O nome não pode estar em branco")
+    @Size(max = 255, message = "O nome deve ter no máximo 255 caracteres")
     private String nome;
 
     @Column(nullable = false)
+    @NotBlank(message = "A cidade não pode estar em branco")
+    @Size(max = 255, message = "A cidade deve ter no máximo 255 caracteres")
     private String cidade;
 
     @Column(nullable = false)
+    @NotBlank(message = "O estado não pode estar em branco")
+    @Size(min = 2, max = 2, message = "O estado deve ter exatamente 2 caracteres")
     private String estado;
 
+    @Size(max = 1000, message = "A descrição deve ter no máximo 1000 caracteres")
     private String descricao;
 
     public Administradora() {
