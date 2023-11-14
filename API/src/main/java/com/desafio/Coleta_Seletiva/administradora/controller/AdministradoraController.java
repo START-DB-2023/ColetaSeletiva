@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
+import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
 
 @RestController
 @RequestMapping("/api/administradoras")
@@ -22,41 +23,81 @@ public class AdministradoraController {
     private AdministradoraService administradoraService;
 
     @PostMapping
-    public Administradora cadastrarAdministradora(@RequestBody Administradora administradora) {
-        return administradoraService.cadastrarAdministradora(administradora);
+    public ResponseEntity<Object> cadastrarAdministradora(@RequestBody Administradora administradora) {
+        try {
+            Administradora novaAdministradora = administradoraService.cadastrarAdministradora(administradora);
+            return new ResponseEntity<>(novaAdministradora, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao cadastrar administradora: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping
-    public List<Administradora> listarAdministradoras() {
-        return administradoraService.listarAdministradoras();
+    public ResponseEntity<Object> listarAdministradoras() {
+        try {
+            List<Administradora> administradoras = administradoraService.listarAdministradoras();
+            return new ResponseEntity<>(administradoras, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao listar administradoras: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/{id}")
-    public Administradora obterAdministradoraPorId(@PathVariable Long id) {
-        return administradoraService.obterAdministradoraPorId(id);
+    public ResponseEntity<Object> obterAdministradoraPorId(@PathVariable Long id) {
+        try {
+            Administradora administradora = administradoraService.obterAdministradoraPorId(id);
+            return new ResponseEntity<>(administradora, HttpStatus.OK);
+        } catch (AdministradoraNotFoundException e) {
+            return new ResponseEntity<>("Administradora não encontrada", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao obter administradora: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/desativar/{id}")
-    public Administradora desativarAdministradora(@PathVariable Long id) {
-        return administradoraService.desativarAdministradora(id);
+    public ResponseEntity<Object> desativarAdministradora(@PathVariable Long id) {
+        try {
+            Administradora administradoraDesativada = administradoraService.desativarAdministradora(id);
+            return new ResponseEntity<>(administradoraDesativada, HttpStatus.OK);
+        } catch (AdministradoraNotFoundException e) {
+            return new ResponseEntity<>("Administradora não encontrada", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao desativar administradora: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping("/{id}")
-    public void excluirAdministradora(@PathVariable Long id) {
-        administradoraService.excluirAdministradora(id);
+    public ResponseEntity<Object> excluirAdministradora(@PathVariable Long id) {
+        try {
+            administradoraService.excluirAdministradora(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (AdministradoraNotFoundException e) {
+            return new ResponseEntity<>("Administradora não encontrada", HttpStatus.NOT_FOUND);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao excluir administradora: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Administradora> atualizarAdministradora(
+    public ResponseEntity<Object> atualizarAdministradora(
             @PathVariable Long id,
             @RequestBody Administradora novaAdministradora) {
-
-        Administradora administradoraAtualizada = administradoraService.atualizarAdministradora(id, novaAdministradora);
-
-        if (administradoraAtualizada != null) {
-            return new ResponseEntity<>(administradoraAtualizada, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        try {
+            Administradora administradoraAtualizada = administradoraService.atualizarAdministradora(id,
+                    novaAdministradora);
+            if (administradoraAtualizada != null) {
+                return new ResponseEntity<>(administradoraAtualizada, HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("Administradora não encontrada", HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro ao atualizar administradora: " + e.getMessage(),
+                    HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
