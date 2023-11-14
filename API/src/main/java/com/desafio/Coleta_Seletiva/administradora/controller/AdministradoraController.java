@@ -50,9 +50,9 @@ public class AdministradoraController {
             Administradora administradora = administradoraService.obterAdministradoraPorId(id);
             return new ResponseEntity<>(administradora, HttpStatus.OK);
         } catch (AdministradoraNotFoundException e) {
-            return new ResponseEntity<>("Administradora não encontrada", HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>("Instituição administradora não encontrada", HttpStatus.NOT_FOUND);
         } catch (Exception e) {
-            return new ResponseEntity<>("Erro ao obter administradora: " + e.getMessage(),
+            return new ResponseEntity<>("Erro ao obter instituição administradora: " + e.getMessage(),
                     HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
