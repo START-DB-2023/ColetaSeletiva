@@ -1,9 +1,7 @@
 package com.desafio.Coleta_Seletiva.administradora.services;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.web.server.ResponseStatusException;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.repositories.AdministradoraRepository;
 import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
@@ -34,7 +32,7 @@ public class AdministradoraService {
 
     public Administradora obterAdministradoraPorId(Long id) {
         return administradoraRepository.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Administradora não encontrada"));
+                .orElseThrow(() -> new AdministradoraNotFoundException("Instituição administradora não encontrada com o ID: " + id));
     }
 
     public void excluirAdministradora(Long id) {

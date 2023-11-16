@@ -1,0 +1,98 @@
+:root{
+    --lightble: #4560c2;
+    --blue: #314795;
+    --shadowblue: #1b295c;
+    --gray: #bababa;
+    --shadowgray: #858585;
+    --white: #fff;
+}
+
+.formsMaterial{
+    width: 350px;
+    height: 600px;
+    background-color: var(--gray);
+    border: 5px solid var(--blue);
+    border-radius: 20px;
+}
+
+.title{
+    color: #314795;
+    font-size: 40px;
+    margin: 25px 0px 10px 0px;
+}
+
+.wrapper{
+    margin: 0px 30px;
+    justify-content: left;
+}
+
+.subtitle{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    color: var(--blue);
+}
+
+.inputType, .inputColor, .inputDescription{
+    background-color: var(--white);
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+}
+
+.inputType, .inputDescription{
+    width: 280px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.inputType{
+    width: 280px;
+    height: 25px;
+    background-color: var(--white);
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+}
+
+.inputColor{
+    width: 285px;
+}
+
+.inputDescription{
+    resize: none;
+}
+
+hr{
+    width: 190px;
+    height: 5px;
+    background-color: var(--blue);
+    border-radius: 15px;
+}
+
+.registerButton{
+    width: 20vh;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 30px;
+    border: 5px solid var(--white);
+    border-radius: 10px;
+}
+
+.registerButton:hover{
+    background-color: var(--lightble);
+    color: var(--shadowgray);
+    border: 5px solid var(--shadowgray);
+}
+
+.registerButton:active{
+    background-color: var(--shadowblue);
+    color: var(--gray);
+    border: 5px solid var(--gray);
+}
