@@ -1,10 +1,13 @@
 package com.desafio.Coleta_Seletiva.administradora.dto.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.desafio.Coleta_Seletiva.administradora.dto.AdministradoraDTO;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 
+@Component
 public class AdministradoraMapper {
-    public static AdministradoraDTO mapToDTO(Administradora administradora) {
+    public AdministradoraDTO mapToDTO(Administradora administradora) {
         return new AdministradoraDTO(
                 administradora.getId(),
                 administradora.getNome(),
@@ -13,7 +16,7 @@ public class AdministradoraMapper {
                 administradora.getDescricao());
     }
 
-    public static Administradora mapToEntity(AdministradoraDTO administradoraDTO) {
+    public Administradora mapToEntity(AdministradoraDTO administradoraDTO) {
         return new Administradora(
                 administradoraDTO.getId(),
                 administradoraDTO.getNome(),
