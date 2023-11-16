@@ -7,12 +7,14 @@
     --white: #fff;
 }
 
-.formsMaterial{
-    width: 350px;
-    height: 600px;
+.formsAdministration{
+    margin: auto;
+    width: 500px;
+    height: 630px;
     background-color: var(--gray);
     border: 5px solid var(--blue);
     border-radius: 20px;
+    margin-bottom: 70px;
 }
 
 .title{
@@ -33,44 +35,30 @@
     color: var(--blue);
 }
 
-.inputType, .inputColor, .inputDescription{
+.inputName, .inputDesc, .inputState, .inputCity{
+    width: 433px;
     background-color: var(--white);
     color: black;
     font-size: 17px;
     font-weight: 600;
     border-radius: 5px;
+    border: none;
     border-bottom: 4px solid var(--blue);
     text-align: center;
 }
 
-.inputType, .inputDescription{
-    width: 280px;
-    font-size: 17px;
-    font-weight: 600;
-}
 
-.inputType{
-    width: 280px;
+.inputName{
     height: 25px;
-    background-color: var(--white);
-    color: black;
-    font-size: 17px;
-    font-weight: 600;
-    border-radius: 5px;
-    border-bottom: 4px solid var(--blue);
-    text-align: center;
 }
 
-.inputColor{
-    width: 285px;
-}
-
-.inputDescription{
+.inputDesc{
+    padding: 5px;
     resize: none;
 }
 
 hr{
-    width: 190px;
+    width: 310px;
     height: 5px;
     background-color: var(--blue);
     border-radius: 15px;
