@@ -1,11 +1,25 @@
 package com.desafio.Coleta_Seletiva.administradora.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 public class AdministradoraDTO {
+
     private Long id;
-    private String nome;
-    private String cidade;
-    private String estado;
+
     private String descricao;
+    
+    @NotBlank(message = "O nome não pode estar em branco")
+    @Size(max = 255, message = "O nome deve ter no máximo 255 caracteres")
+    private String nome;
+
+    @NotBlank(message = "A cidade não pode estar em branco")
+    @Size(max = 255, message = "A cidade deve ter no máximo 255 caracteres")
+    private String cidade;
+
+    @NotBlank(message = "O estado não pode estar em branco")
+    @Size(min = 2, max = 2, message = "O estado deve ter exatamente 2 caracteres")
+    private String estado;
 
     public AdministradoraDTO() {
     }
