@@ -1,14 +1,11 @@
-import { RegisterMaterial } from './components/RegisterMaterial/RegisterMaterial'
-import { RegisterAdministration } from './components/RegisterAdministration/RegisterAdministration'
-import './App.css'
+import { PageHome } from './pages/PageHome/PageHome'
 
 
 function App() {
 
   return (
     <>
-      <RegisterMaterial/>
-      <RegisterAdministration/>
+      <PageHome/>
     </>
   )
 }
