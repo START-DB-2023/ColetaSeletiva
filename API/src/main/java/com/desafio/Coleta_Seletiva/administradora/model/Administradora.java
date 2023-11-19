@@ -1,12 +1,19 @@
 package com.desafio.Coleta_Seletiva.administradora.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
+import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -39,6 +46,9 @@ public class Administradora implements Serializable {
 
     @Size(max = 1000, message = "A descrição deve ter no máximo 1000 caracteres")
     private String descricao;
+
+    @OneToMany(mappedBy = "administradora", cascade = CascadeType.ALL)
+    private Set<PontoColeta> pontosColeta = new HashSet<>();
 
     public Administradora() {
     }
