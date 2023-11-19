@@ -1,6 +1,11 @@
 package com.desafio.Coleta_Seletiva.material.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
+import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +14,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,6 +31,9 @@ public class Material implements Serializable {
   @Enumerated(EnumType.STRING)
   private Cor cor;
   private String descricao;
+
+  @ManyToMany(mappedBy = "materiais")
+  private Set<PontoColeta> pontosDeColeta = new HashSet<>();
 
   public Material() {
   }
@@ -65,6 +74,11 @@ public class Material implements Serializable {
 
   public void setDescricao(String descricao) {
     this.descricao = descricao;
+  }
+
+  @JsonIgnore
+  public Set<PontoColeta> getPontosDeColeta() {
+    return pontosDeColeta;
   }
 
   @Override
