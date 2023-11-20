@@ -1,26 +1,26 @@
 package com.desafio.Coleta_Seletiva.material.dto;
 
 public class MaterialDescriptionDTO {
-  private String description;
+  private String descricao;
 
   public MaterialDescriptionDTO() {
   }
 
-  public MaterialDescriptionDTO(String description) {
-    this.description = description;
+  public MaterialDescriptionDTO(String descricao) {
+    this.descricao = descricao;
   }
 
-  public String getDescription() {
-    return description;
+  public String getDescricao() {
+    return descricao;
   }
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
   }
 
   @Override
   public String toString() {
-    return "MaterialDescriptionDTO [description=" + description + "]";
+    return "MaterialDescriptionDTO [descricao=" + descricao + "]";
   }
 
 }

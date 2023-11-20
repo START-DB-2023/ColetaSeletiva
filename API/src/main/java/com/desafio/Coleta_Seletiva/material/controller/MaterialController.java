@@ -97,7 +97,7 @@ public class MaterialController {
   @PatchMapping("/{id}")
   public ResponseEntity<MaterialResponseDTO> updateDescription(@Valid @PathVariable long id,
       @Valid @RequestBody MaterialDescriptionDTO dto) {
-    Material material = materialService.updateDescription(id, dto.getDescription());
+    Material material = materialService.updateDescription(id, dto.getDescricao());
     return ResponseEntity.ok().body(MaterialMapper.toDTO(material));
   }
 
