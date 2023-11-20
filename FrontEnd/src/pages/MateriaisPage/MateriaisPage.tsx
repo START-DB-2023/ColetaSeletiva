@@ -16,7 +16,14 @@ function MateriaisPage() {
           {materiais?.map(
             (material: { nome: string; cor: string; descricao: string }) => {
               const { nome, cor, descricao } = material;
-              return <Material nome={nome} cor={cor} descricao={descricao} />;
+              return (
+                <Material
+                  key={nome}
+                  nome={nome}
+                  cor={cor}
+                  descricao={descricao}
+                />
+              );
             }
           )}
         </List>
