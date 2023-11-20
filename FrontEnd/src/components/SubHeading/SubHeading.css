@@ -1,0 +1,6 @@
+.c-subheading {
+  color: var(--darkBlue);
+  font-weight: 700;
+  font-size: 24px;
+  font-family: var(--lato);
+}

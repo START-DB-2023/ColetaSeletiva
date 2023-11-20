@@ -1,10 +1,10 @@
-import { FormsMaterial, Title } from "../../components";
+import { FormsMaterial, Heading } from "../../components";
 
 function NewMaterialPage() {
   return (
     <>
       <main>
-        <Title content="Novo material"></Title>
+        <Heading>Novo Material</Heading>
         <FormsMaterial></FormsMaterial>
       </main>
     </>

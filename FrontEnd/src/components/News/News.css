@@ -1,0 +1,33 @@
+.c-news__header {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 16px;
+}
+
+.c-news__filters {
+  border-left: 8px solid var(--darkBlue);
+  padding-left: 16px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 620px) {
+  .c-news__filters {
+    margin-left: 16px;
+  }
+}
+
+:where(.c-news__filters) h3 {
+  color: var(--darkBlue);
+  font-size: 18px;
+}
+
+.c-news__grid {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0px;
+  gap: 16px;
+  flex-wrap: wrap;
+}
