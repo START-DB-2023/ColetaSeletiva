@@ -1,11 +1,68 @@
-#banner{
-    width: 700px;
-    height: 300px;
-    border: 1px solid red;
-    overflow: hidden;
+:root{
+    --darkBlue: #31357F;
+    --blue: #434CC1;
+    --lightBlue: #D4DFFF;
+    --gray: #F3F3F3;
+    --darkGray: #cacaca;
 }
 
-img{
-    width: 1000px;
-    height: auto;
+header{
+    display: flex;
+}
+
+#navbarS{
+    /* border: 1px solid red; */
+    background-color: #cacaca;
+}
+
+#headerInfo{
+    display: flex;
+    margin-top: 0.5vw;
+    height: 3vw;
+    align-items: center;
+    color: var(--blue);
+}
+
+#logoS{
+    width: auto;
+    height: 3vw;
+    margin: 1vw 1.5vw;
+}
+
+#nameS{
+    font-size: 2.5vw;
+}
+hr#name-slogan{
+    background-color: var(--darkBlue);
+    opacity: 0.5;
+    margin: 0.5vw 0.7vw;
+    width: 0.3vw;
+    height: 2.3vw;
+}
+
+#sloganS{
+    margin: 0;
+    font-size: 1.7vw;
+    color: var(--darkBlue);
+    opacity: 0.7;
+}
+
+#headerNav{
+    background-color: var(--lightBlue)  ;
+    margin: 0 9vw;
+    padding: 0 5vw;
+    gap: 8vw;
+    height: 3vw;
+    width: auto;
+    display: flex;
+    border-bottom-right-radius: 70px;
+    border-bottom-left-radius: 70px;
+}
+
+.navbarTextH{
+    color: var(--blue);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
 }
