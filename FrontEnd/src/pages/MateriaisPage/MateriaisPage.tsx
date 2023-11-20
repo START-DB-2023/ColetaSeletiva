@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { List, Material, Heading } from "../../components";
 import useQueryMateriais from "../../hooks/useQueryMateriais";
 
 function MateriaisPage() {
@@ -6,29 +8,27 @@ function MateriaisPage() {
 
   return (
     <>
-      <h2>Materiais</h2>
+      <Link to={"/materiais/novo"}>Novo material</Link>
+      <Heading>Materiais</Heading>
       <section>
         {materiaisQueryIsLoading && <p>Carregando informações</p>}
-        <ul>
+        <List>
           {materiais?.map(
             (material: { nome: string; cor: string; descricao: string }) => {
               const { nome, cor, descricao } = material;
-              return <Material nome={nome} cor={cor} descricao={descricao} />;
+              return (
+                <Material
+                  key={nome}
+                  nome={nome}
+                  cor={cor}
+                  descricao={descricao}
+                />
+              );
             }
           )}
-        </ul>
+        </List>
       </section>
     </>
-  );
-}
-
-function Material(props: { nome: string; cor: string; descricao: string }) {
-  return (
-    <li>
-      <p>
-        {props.nome} - {props.cor} - {props.descricao}
-      </p>
-    </li>
   );
 }
 

@@ -1,0 +1,12 @@
+.c-material {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+}
+
+.c-material__name {
+  align-self: center;
+  font-size: 24px;
+  font-weight: 700;
+}
