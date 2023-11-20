@@ -1,11 +1,11 @@
-import { PageHome } from './pages/PageHome/PageHome'
+import { PageSearch } from './pages/PageSearch/PageSearch'
 
 
 function App() {
 
   return (
     <>
-      <PageHome/>
+      <PageSearch/>
     </>
   )
 }

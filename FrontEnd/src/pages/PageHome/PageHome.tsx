@@ -8,7 +8,7 @@ export function PageHome() {
         <div id="container">
             <div id="banner">
                 <div id="informationDiv">
-                    <img src='/Logo.png' id='logo'alt='Lixeira desenhada sorrindo'/>
+                    <img src='/Logo.png' id='logoH'alt='Lixeira com escritos "LxU"'/>
                     <h1 id='name'>LixUtil</h1>
                     <h2 id='slogan'>Seu lixo? Nosso trabalho!</h2>
                 </div>
@@ -18,10 +18,10 @@ export function PageHome() {
             </div>
             <hr id='banner-navigation'/>
             <div id='navigation'>
-                <div id='navbar'>
-                        <h2 className='navbarText'>Cadastrar</h2>
-                        <h2 className='navbarText'>Buscar</h2>
-                        <h2 className='navbarText'>Sobre</h2>
+                <div id='navbarH'>
+                        <h2 className='navbarTextH'>Cadastrar</h2>
+                        <h2 className='navbarTextH'>Buscar</h2>
+                        <h2 className='navbarTextH'>Sobre</h2>
                 </div>
                 <div id='newsInfo'>
                     <h3 id='latestNews'>Últimas Notícias</h3>
