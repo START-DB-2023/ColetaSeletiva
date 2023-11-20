@@ -28,7 +28,7 @@ h1, h2, h3, h4{
     justify-items: center;
 }
 
-#logoH{
+#logo{
     width: 7vw;
     height: auto;
     margin-top: 3vw;
@@ -73,7 +73,7 @@ hr#banner-navigation{
     background-color: var(--darkGray);
 }
 
-#navbarH{
+#navbar{
     background-color: var(--lightBlue);
     height: 2.5vw;
     width: 60vw;
@@ -82,7 +82,7 @@ hr#banner-navigation{
     border-radius: 0 0 40px 40px;
 }
 
-h2.navbarTextH{
+h2.navbarText{
     margin: auto;
     color: var(--blue);
     font-size: 1.5vw;

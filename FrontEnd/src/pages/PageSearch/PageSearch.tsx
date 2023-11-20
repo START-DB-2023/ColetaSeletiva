@@ -1,6 +1,6 @@
 import './PageSearch.css'
 
-export function PageSearch() {
+function PageSearch() {
 
     return (
             <div id="container">
@@ -23,3 +23,5 @@ export function PageSearch() {
             </div>
     );
 }
+
+export default PageSearch;
