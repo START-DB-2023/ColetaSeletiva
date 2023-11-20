@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { List, Material, Title } from "../../components";
 import useQueryMateriais from "../../hooks/useQueryMateriais";
 
@@ -7,6 +8,7 @@ function MateriaisPage() {
 
   return (
     <>
+      <Link to={"/materiais/novo"}>Novo material</Link>
       <Title content="Materiais" />
       <section>
         {materiaisQueryIsLoading && <p>Carregando informações</p>}
