@@ -1,14 +1,21 @@
+import useQueryMateriais from "../../hooks/useQueryMateriais";
+
 function MateriaisPage() {
+  const { materiais, materiaisQueryIsLoading } = useQueryMateriais();
+  console.log(materiais);
+
   return (
     <>
       <h2>Materiais</h2>
       <section>
+        {materiaisQueryIsLoading && <p>Carregando informações</p>}
         <ul>
-          <Material
-            nome="Metal"
-            cor="Amarelo"
-            descricao="Resíduos magnéticos"
-          />
+          {materiais?.map(
+            (material: { nome: string; cor: string; descricao: string }) => {
+              const { nome, cor, descricao } = material;
+              return <Material nome={nome} cor={cor} descricao={descricao} />;
+            }
+          )}
         </ul>
       </section>
     </>

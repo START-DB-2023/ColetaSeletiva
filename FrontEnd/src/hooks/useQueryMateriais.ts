@@ -9,6 +9,9 @@ const useQueryMateriais = () => {
     data: materiais,
   } = useQuery({
     queryKey: ["materiais"],
+    select: (responseData) => {
+      return responseData.data;
+    },
     queryFn: () => fetchAPIData.get("materiais"),
   });
 
