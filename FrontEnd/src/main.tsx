@@ -4,6 +4,8 @@ import "./index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ErrorPage, HomePage, MateriaisPage } from "./pages";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
 
 const router = createBrowserRouter([
   {
@@ -19,9 +21,14 @@ const router = createBrowserRouter([
   },
 ]);
 
+const queryClient = new QueryClient();
+
 const root = document.getElementById("root")!;
 ReactDOM.createRoot(root).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router}></RouterProvider>
+      <ReactQueryDevtools></ReactQueryDevtools>
+    </QueryClientProvider>
   </React.StrictMode>
 );
