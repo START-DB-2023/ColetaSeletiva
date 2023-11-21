@@ -2,21 +2,54 @@ package com.desafio.Coleta_Seletiva.ponto_coleta.dto;
 
 import java.util.Set;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
 public class PontoColetaCreateDTO {
+  @NotBlank
   private String nome;
+
+  @NotBlank
   private String descricao;
+
+  @NotNull
   private Double latitude;
+
+  @NotNull
   private Double longitude;
+
+  @NotBlank
   private String logradouro;
+
+  @NotNull
   private Integer numero;
+
+  @NotBlank
   private String bairro;
+
+  @NotBlank
   private String estado;
+
+  @NotBlank
   private String pais;
+
+  @NotBlank
   private String cep;
+
+  @NotBlank
   private String horario_inicio;
+
+  @NotBlank
   private String horario_termino;
+
+  @NotBlank
   private String funcionamento;
+
+  @NotNull
   private Long administradoraId;
+
+  @Size(min = 1)
   private Set<Long> materiaisIds;
 
   public PontoColetaCreateDTO() {
