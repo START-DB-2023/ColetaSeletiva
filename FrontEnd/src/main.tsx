@@ -11,6 +11,7 @@ import {
   AdministratorPage,
   NewAdministratorPage,
   SearchPage,
+  NewPontoColetaPage,
 } from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -41,7 +42,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/administradoras/novo",
-    element: <NewAdministratorPage />
+    element: <NewAdministratorPage />,
+  },
+  {
+    path: "/pontos/novo",
+    element: <NewPontoColetaPage />,
   },
 ]);
 
