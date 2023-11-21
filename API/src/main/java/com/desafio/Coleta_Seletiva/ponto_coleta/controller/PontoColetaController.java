@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,8 +13,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialDescriptionDTO;
+import com.desafio.Coleta_Seletiva.material.dto.MaterialResponseDTO;
+import com.desafio.Coleta_Seletiva.material.dto.mapper.MaterialMapper;
+import com.desafio.Coleta_Seletiva.material.model.Material;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaCreateDTO;
+import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaUpdateDTO;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.mapper.PontoColetaMapper;
 import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
 import com.desafio.Coleta_Seletiva.ponto_coleta.services.PontoColetaService;
@@ -68,6 +74,18 @@ public class PontoColetaController {
       @RequestParam Long administradoraId) {
     List<PontoColeta> pontos = pontoColetaService.getPontosDeColetaPorAdministradora(administradoraId);
     return ResponseEntity.ok().body(pontos);
+  }
+
+  @Operation(summary = "Atualizar um ponto de coleta", description = "Recurso para atualizar um ponto de coleta", responses = {
+      @ApiResponse(responseCode = "200", description = "Descrição atualizada com sucesso", content = @Content(mediaType = "application/json", schema = @Schema(implementation = PontoColeta.class))),
+      @ApiResponse(responseCode = "404", description = "Ponto de coleta não encontrado", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ErrorMessage.class)))
+  })
+
+  @PatchMapping("/{id}")
+  public ResponseEntity<PontoColeta> updateDescription(@Valid @PathVariable long id,
+      @Valid @RequestBody PontoColetaUpdateDTO dto) {
+   PontoColeta ponto = pontoColetaService.update(id, dto);
+    return ResponseEntity.ok().body(ponto);
   }
 
 }
