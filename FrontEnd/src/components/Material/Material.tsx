@@ -1,5 +1,6 @@
 import { normalizeColorName } from "../../utils/normalizeColorName";
 import "./Material.css";
+
 type Material = {
   nome: string;
   cor: string;

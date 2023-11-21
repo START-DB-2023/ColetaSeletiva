@@ -1,0 +1,11 @@
+.c-administrator {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  .c-administrator__name {
+    align-self: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
