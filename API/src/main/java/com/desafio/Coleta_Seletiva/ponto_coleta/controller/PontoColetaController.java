@@ -1,9 +1,12 @@
 package com.desafio.Coleta_Seletiva.ponto_coleta.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
@@ -12,7 +15,6 @@ import com.desafio.Coleta_Seletiva.ponto_coleta.dto.mapper.PontoColetaMapper;
 import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
 import com.desafio.Coleta_Seletiva.ponto_coleta.services.PontoColetaService;
 import com.desafio.Coleta_Seletiva.web.exception.ErrorMessage;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -46,5 +48,12 @@ public class PontoColetaController {
     PontoColeta created = pontoColetaService
         .create(new PontoColetaMapper(administradoraService, materialService).toPontoColeta(dto));
     return ResponseEntity.ok().body(created);
+  }
+
+  @GetMapping("/todos")
+  @Operation(summary = "Recuperar Todos os Pontos de Coleta", description = "Recupera uma lista de todos os pontos de coleta")
+  public @ResponseBody ResponseEntity<List<PontoColeta>> getAllPontosDeColeta() {
+    List<PontoColeta> pontos = pontoColetaService.getAllPontosDeColeta();
+    return ResponseEntity.ok().body(pontos);
   }
 }
