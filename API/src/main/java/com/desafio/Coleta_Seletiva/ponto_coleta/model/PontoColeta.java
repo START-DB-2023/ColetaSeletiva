@@ -6,6 +6,7 @@ import java.util.Set;
 
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.material.model.Material;
+import com.desafio.Coleta_Seletiva.ponto_coleta.controller.PontoColetaController;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -50,6 +51,10 @@ public class PontoColeta implements Serializable {
   @JoinTable(name = "ponto_de_coleta_materiais", joinColumns = {
       @JoinColumn(name = "ponto_de_coleta_id") }, inverseJoinColumns = { @JoinColumn(name = "material_id") })
   private Set<Material> materiais = new HashSet<Material>();
+
+  public PontoColeta() {
+
+  }
 
   public PontoColeta(String nome, String descricao, Double latitude, Double longitude, String logradouro,
       Integer numero, String bairro, String estado, String pais, String cep, String horario_inicio,
