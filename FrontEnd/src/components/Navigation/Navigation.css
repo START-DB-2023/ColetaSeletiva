@@ -15,6 +15,7 @@
 }
 
 .c-navigation__item {
+  color: #434CC1;
   font-size: 24px;
   font-weight: 700;
   font-family: var(--raleway);

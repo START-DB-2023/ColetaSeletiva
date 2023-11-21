@@ -6,9 +6,11 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import {
   ErrorPage,
   HomePage,
-  MateriaisPage,
+  MaterialPage,
   NewMaterialPage,
-  PageSearch,
+  AdministratorPage,
+  NewAdministratorPage,
+  SearchPage,
 } from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
@@ -23,15 +25,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/busca",
-    element: <PageSearch />,
+    element: <SearchPage />,
   },
   {
     path: "/materiais",
-    element: <MateriaisPage />,
+    element: <MaterialPage />,
   },
   {
     path: "/materiais/novo",
     element: <NewMaterialPage />,
+  },
+  {
+    path: "/administradoras",
+    element: <AdministratorPage />,
+  },
+  {
+    path: "/administradoras/novo",
+    element: <NewAdministratorPage />
   },
 ]);
 

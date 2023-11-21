@@ -28,7 +28,7 @@ function FormsMaterial() {
       return;
     }
 
-    if (description.length === 255) {
+    if (description.length === 200) {
       alert("A descrição está muito grande.");
       return;
     }
@@ -85,7 +85,7 @@ function FormsMaterial() {
             <textarea
               className="inputDescription"
               rows={4}
-              maxLength={255}
+              maxLength={200}
               required
               value={description}
               onChange={(event) => setDescription(event.currentTarget.value)}

@@ -1,7 +1,9 @@
 import ErrorPage from "./ErrorPage/ErrorPage";
-import HomePage from "./HomePage/HomePage";
-import PageSearch from "./PageSearch/PageSearch";
-import MateriaisPage from "./MateriaisPage/MateriaisPage";
-import NewMaterialPage from "./NewMaterialPage/NewMaterialPage";
+import HomePage from "./HomePage";
+import SearchPage from "./SearchPage";
+import MaterialPage from "./Material/MaterialPage";
+import NewMaterialPage from "./Material/NewMaterialPage";
+import AdministratorPage from "./Administrator/AdministratorPage";
+import NewAdministratorPage from "./Administrator/NewAdministratorPage";
 
-export { ErrorPage, HomePage, PageSearch, MateriaisPage, NewMaterialPage };
+export { ErrorPage, HomePage, SearchPage, MaterialPage, NewMaterialPage, AdministratorPage, NewAdministratorPage};

@@ -1,5 +1,4 @@
-import "./HomePage.css";
-import { Header, MainContainer, Navigation, News } from "../../components";
+import { Header, MainContainer, Navigation, News } from "../components";
 
 function HomePage() {
   return (

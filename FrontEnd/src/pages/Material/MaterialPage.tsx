@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { List, Material, Heading } from "../../components";
+import Material from "../../components/Material/Material";
+import { List, Heading } from "../../components";
 import useQueryMateriais from "../../hooks/useQueryMateriais";
 
 function MateriaisPage() {

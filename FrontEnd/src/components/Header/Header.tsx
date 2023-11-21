@@ -7,7 +7,7 @@ function Header() {
           className="c-logo__img"
           src="/Logo.png"
           id="logo"
-          alt="Lixeira desenhada sorrindo"
+          alt='Logo de uma lixeira com as escritas "LxU"'
         />
         <h1 className="c-logo__name">LixUtil</h1>
       </div>
