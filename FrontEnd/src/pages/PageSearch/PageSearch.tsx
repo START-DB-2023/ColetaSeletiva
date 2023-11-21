@@ -6,19 +6,27 @@ function PageSearch() {
             <div id="container">
                 <header id='navbarS'>
                     <div id='headerInfo'>
-                        <img src='/Logo.png' id='logoS' alt='Lixeira com escritos "LxU"'/>
-                        <h1 id='nameS'>LixUtil</h1>
+                        <img src='/Logo.png' id='logo' alt='Lixeira com escritos "LxU"'/>
+                        <h1 id='name'>LixUtil</h1>
                         <hr id='name-slogan'/>
-                        <h2 id='sloganS'>Seu lixo? Nosso trabalho!</h2>
+                        <h2 id='slogan'>Seu lixo? Nosso trabalho!</h2>
                     </div>
                     <div id='headerNav'>
-                        <h2 className='navbarTextH'>Cadastrar</h2>
-                        <h2 className='navbarTextH'>Buscar</h2>
-                        <h2 className='navbarTextH'>Sobre</h2>
+                        <h2 className='navbarText'>Cadastrar</h2>
+                        <h2 className='navbarText'>Buscar</h2>
+                        <h2 className='navbarText'>Sobre</h2>
                     </div>
                 </header>
                 <body>
+                    <div id='cpWrapper'>
+                        <div id='cpSearch'>
 
+                        </div>
+
+                    </div>
+                    <div id='mapDiv'>
+
+                    </div>
                 </body>
             </div>
     );

@@ -1,0 +1,30 @@
+.c-header {
+  border-bottom: 8px solid var(--darkBlue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.c-header__slogan {
+  color: var(--blue);
+  font-size: 24px;
+  font-family: var(--raleway);
+}
+
+.c-logo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.c-logo__img {
+  width: 40px;
+  aspect-ratio: 1/1;
+}
+
+.c-logo__name {
+  font-size: 24px;
+  font-family: var(--lato);
+  font-weight: 700;
+}

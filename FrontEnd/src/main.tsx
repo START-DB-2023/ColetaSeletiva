@@ -3,7 +3,13 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ErrorPage, HomePage, MateriaisPage, PageSearch } from "./pages";
+import {
+  ErrorPage,
+  HomePage,
+  MateriaisPage,
+  NewMaterialPage,
+  PageSearch,
+} from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 
@@ -22,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/materiais",
     element: <MateriaisPage />,
+  },
+  {
+    path: "/materiais/novo",
+    element: <NewMaterialPage />,
   },
 ]);
 

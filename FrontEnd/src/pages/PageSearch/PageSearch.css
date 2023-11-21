@@ -2,8 +2,8 @@
     --darkBlue: #31357F;
     --blue: #434CC1;
     --lightBlue: #D4DFFF;
-    --gray: #F3F3F3;
-    --darkGray: #cacaca;
+    --gray: #cacaca;
+    --darkGray: #B5B4B4;
 }
 
 header{
@@ -11,8 +11,8 @@ header{
 }
 
 #navbarS{
-    /* border: 1px solid red; */
-    background-color: #cacaca;
+    border: 1px solid red;
+    background-color: var(--gray);
 }
 
 #headerInfo{
@@ -23,13 +23,13 @@ header{
     color: var(--blue);
 }
 
-#logoS{
+#logo{
     width: auto;
     height: 3vw;
     margin: 1vw 1.5vw;
 }
 
-#nameS{
+#name{
     font-size: 2.5vw;
 }
 hr#name-slogan{
@@ -40,7 +40,8 @@ hr#name-slogan{
     height: 2.3vw;
 }
 
-#sloganS{
+#slogan{
+    width: 22vw;
     margin: 0;
     font-size: 1.7vw;
     color: var(--darkBlue);
@@ -49,7 +50,7 @@ hr#name-slogan{
 
 #headerNav{
     background-color: var(--lightBlue)  ;
-    margin: 0 9vw;
+    margin: 0 10vw;
     padding: 0 5vw;
     gap: 8vw;
     height: 3vw;
@@ -59,10 +60,19 @@ hr#name-slogan{
     border-bottom-left-radius: 70px;
 }
 
-.navbarTextH{
+.navbarText{
     color: var(--blue);
     margin: 0;
     display: flex;
     align-items: center;
     font-size: 1.5vw;
 }
+
+#cpWrapper{
+    background-color: var(--darkGray);
+}
+
+#cpSearch{
+    background-color: white;
+}
+

@@ -1,7 +1,5 @@
 package com.desafio.Coleta_Seletiva.ponto_coleta.dto.mapper;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
 import com.desafio.Coleta_Seletiva.material.model.Material;
