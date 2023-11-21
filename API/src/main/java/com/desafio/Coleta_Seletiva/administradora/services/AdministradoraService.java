@@ -6,6 +6,8 @@ import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.repositories.AdministradoraRepository;
 import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class AdministradoraService {
 
@@ -16,6 +18,7 @@ public class AdministradoraService {
         return administradoraRepository.findAll();
     }
 
+    @Transactional
     public Administradora cadastrarAdministradora(Administradora administradora) {
         return administradoraRepository.save(administradora);
     }

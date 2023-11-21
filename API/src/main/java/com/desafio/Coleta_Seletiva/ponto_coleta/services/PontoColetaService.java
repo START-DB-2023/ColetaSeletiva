@@ -1,11 +1,10 @@
 package com.desafio.Coleta_Seletiva.ponto_coleta.services;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
 import com.desafio.Coleta_Seletiva.ponto_coleta.repositories.PontoColetaRepository;
-
 import jakarta.transaction.Transactional;
 
 @Service
@@ -20,5 +19,14 @@ public class PontoColetaService {
   @Transactional
   public PontoColeta create(PontoColeta pontoColeta) {
     return pontoColetaRepository.save(pontoColeta);
+  }
+
+  
+  public List<PontoColeta> getAllPontosDeColeta() {
+    return pontoColetaRepository.findAll();
+  }
+
+  public List<PontoColeta> getPontosDeColetaPorAdministradora(Long administradoraId) {
+    return pontoColetaRepository.findByAdministradoraId(administradoraId);
   }
 }
