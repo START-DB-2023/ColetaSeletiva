@@ -14,7 +14,7 @@ const addAdministrator = (data: {
         cidade: city,
         descricao: description,
     };
-    return fetchAPIData.post("/administradoras", JSON.stringify(body), {headers:{ "Content-Type": "application/json"}});
+    return fetchAPIData.post("/administradoras", body);
 };
 
 const useCreateAdministrator = () => {
