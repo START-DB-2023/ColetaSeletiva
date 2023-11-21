@@ -13,7 +13,8 @@ public class AdministradoraMapper {
                 administradora.getNome(),
                 administradora.getCidade(),
                 administradora.getEstado(),
-                administradora.getDescricao());
+                administradora.getDescricao(),
+                administradora.isAtivo());
     }
 
     public Administradora mapToEntity(AdministradoraDTO administradoraDTO) {

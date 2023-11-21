@@ -8,7 +8,9 @@ public class AdministradoraDTO {
     private Long id;
 
     private String descricao;
-    
+
+    private Boolean isAtivo;
+
     @NotBlank(message = "O nome não pode estar em branco")
     @Size(max = 255, message = "O nome deve ter no máximo 255 caracteres")
     private String nome;
@@ -24,12 +26,13 @@ public class AdministradoraDTO {
     public AdministradoraDTO() {
     }
 
-    public AdministradoraDTO(Long id, String nome, String cidade, String estado, String descricao) {
+    public AdministradoraDTO(Long id, String nome, String cidade, String estado, String descricao, Boolean isAtivo) {
         this.id = id;
         this.nome = nome;
         this.cidade = cidade;
         this.estado = estado;
         this.descricao = descricao;
+        this.isAtivo = isAtivo;
     }
 
     public Long getId() {
@@ -70,6 +73,14 @@ public class AdministradoraDTO {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public Boolean getIsAtivo() {
+        return isAtivo;
+    }
+
+    public void setIsAtivo(Boolean isAtivo) {
+        this.isAtivo = isAtivo;
     }
 
     @Override
