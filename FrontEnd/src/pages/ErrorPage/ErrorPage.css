@@ -1,0 +1,39 @@
+.c-error-page {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+:where(.c-error-page) img {
+  max-width: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.c-error-page__header {
+  flex-basis: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+:where(.c-error-page__header) h1 {
+  font-weight: 700;
+  font-size: 64px;
+  font-family: var(--lato);
+}
+
+:where(.c-error-page__header) h2 {
+  font-size: 24px;
+  font-family: var(--raleway);
+}
+
+:where(.c-error-page__header) .c-button {
+  align-self: flex-start;
+  width: 100%;
+}
