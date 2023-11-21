@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Material from "../../components/Material/Material";
-import { List, Heading } from "../../components";
+import { List, Heading, Button } from "../../components";
 import useQueryMateriais from "../../hooks/useQueryMateriais";
 
 function MateriaisPage() {
@@ -9,8 +9,14 @@ function MateriaisPage() {
 
   return (
     <>
-      <Link to={"/materiais/novo"}>Novo material</Link>
-      <Heading>Materiais</Heading>
+      <Heading color="#31357f">Materiais</Heading>
+      <center>
+            <Button color="white">
+                <Link style={{color: "var(--blue)", textDecorationLine: 'none'}} to={"/materiais/novo"}>
+                    Novo Material
+                </Link>
+            </Button>
+          </center>
       <section>
         {materiaisQueryIsLoading && <p>Carregando informações</p>}
         <List>

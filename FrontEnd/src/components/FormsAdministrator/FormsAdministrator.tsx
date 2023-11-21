@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
-import './FormsAdministrator.css'
-import { useNavigate } from 'react-router'
+import { useState } from 'react';
+import { useNavigate } from 'react-router';
+import './FormsAdministrator.css';
 import useQueryCreateAdministrator from '../../hooks/useQueryCreateAdministrator';
 
 
@@ -43,7 +43,7 @@ function FormsAdministrator() {
     return (
         <>
         <div className='formsAdministration'>
-            <h1 className='title'>Cadastro de Instituições Administrativas</h1>
+            <h1 className='title'>Cadastro de Instituição Administrativa</h1>
             <hr />
                 <form id='formWrapper' onSubmit={submit}>
                     <div className='wrapper'>

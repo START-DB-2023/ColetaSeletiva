@@ -2,4 +2,6 @@
   font-size: 32px;
   font-family: var(--lato);
   font-weight: 700;
+  text-align: center;
+  margin: 1vw 0vw;
 }
