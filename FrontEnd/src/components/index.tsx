@@ -9,6 +9,7 @@ import MainContainer from "./MainContainer/MainContainer";
 import CardNews from "./CardNews/CardNews";
 import Button from "./Button/Button";
 import SubHeading from "./SubHeading/SubHeading";
+import FormsPontoColeta from "./FormsPontoColeta/FormsPontoColeta";
 export {
   Material,
   List,
@@ -21,4 +22,5 @@ export {
   CardNews,
   Button,
   SubHeading,
+  FormsPontoColeta,
 };
