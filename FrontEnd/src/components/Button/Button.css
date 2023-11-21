@@ -3,4 +3,12 @@
   border: none;
   border-radius: 70px;
   font-weight: 700;
+  color: #000;
+  font-size: 12px;
+}
+
+:where(.c-button) a {
+  color: inherit;
+  font-size: 1em;
+  line-height: 1.5;
 }
