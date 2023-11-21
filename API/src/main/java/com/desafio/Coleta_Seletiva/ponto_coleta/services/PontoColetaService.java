@@ -21,8 +21,12 @@ public class PontoColetaService {
     return pontoColetaRepository.save(pontoColeta);
   }
 
-  @Transactional
+  
   public List<PontoColeta> getAllPontosDeColeta() {
     return pontoColetaRepository.findAll();
+  }
+
+  public List<PontoColeta> getPontosDeColetaPorAdministradora(Long administradoraId) {
+    return pontoColetaRepository.findByAdministradoraId(administradoraId);
   }
 }

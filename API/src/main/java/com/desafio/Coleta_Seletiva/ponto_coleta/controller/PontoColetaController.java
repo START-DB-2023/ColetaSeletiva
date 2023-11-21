@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
@@ -56,4 +57,13 @@ public class PontoColetaController {
     List<PontoColeta> pontos = pontoColetaService.getAllPontosDeColeta();
     return ResponseEntity.ok().body(pontos);
   }
+
+  @GetMapping("/por-administradora")
+  @Operation(summary = "Recuperar Pontos de Coleta Por Administradora", description = "Recupera uma lista de pontos de coleta por administradora")
+  public @ResponseBody ResponseEntity<List<PontoColeta>> getPontosDeColetaPorAdministradora(
+      @RequestParam Long administradoraId) {
+    List<PontoColeta> pontos = pontoColetaService.getPontosDeColetaPorAdministradora(administradoraId);
+    return ResponseEntity.ok().body(pontos);
+  }
+
 }
