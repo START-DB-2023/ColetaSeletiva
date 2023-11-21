@@ -1,12 +1,16 @@
 :root {
   --lato: "Lato", sans-serif;
   --raleway: "Raleway", sans-serif;
+  --shadowblue: #1b295c;
   --darkBlue: #31357f;
   --blue: #434cc1;
   --lightBlue: #d4dfff;
-  --gray: #f3f3f3;
+  --shadowgray: #858585;
   --darkGray: #cacaca;
+  --gray: #f3f3f3;
+  --white: #fff;
 }
+
 html,
 body,
 div,
@@ -143,6 +147,7 @@ html {
   box-sizing: inherit;
 }
 
+/* Escrever novas regras globais desse ponto em diante. */
 body {
   background-color: #cacaca;
 }

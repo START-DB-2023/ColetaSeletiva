@@ -1,3 +1,10 @@
+.c-administratorContainer{
+  background-color: var(--gray);
+  border: 5px solid var(--darkBlue);
+  border-radius: 15px;
+  padding: 2vw 1vw; 
+}
+
 .c-administrator {
     display: flex;
     flex-direction: column;
@@ -5,7 +12,30 @@
   }
   
   .c-administrator__name {
-    align-self: center;
-    font-size: 24px;
+    text-align: center;
+    margin-bottom: 1vw;
+    font-size: 2.5vw;
     font-weight: 700;
+    color: var(--darkBlue);
+  }
+
+  .c-administrator__titleInfo{
+    color: var(--darkBlue);
+    text-align: center;
+    font-size: 1.2vw;
+  }
+
+  .c-administrator__Info{
+    color: var(--darkBlue);
+    text-align: center;
+    font-size: 1.5vw;
+    font-weight: 550;
+    margin-bottom: 1vw;
+  }
+
+  .c-administrator__description{
+    color: var(--darkBlue);
+    text-align: center;
+    font-size: 1vw;
+    font-weight: 550;
   }

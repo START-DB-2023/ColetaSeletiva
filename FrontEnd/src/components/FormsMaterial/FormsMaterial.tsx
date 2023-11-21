@@ -1,5 +1,5 @@
-import { useState } from "react";
 import "./FormsMaterial.css";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 import useQueryCreateMaterial from "../../hooks/useQueryCreateMaterial";
 
@@ -41,7 +41,7 @@ function FormsMaterial() {
   return (
     <>
       <div className="formsMaterial">
-        <h1 className="title">Cadastro de Materiais</h1>
+        <h1 className="title">Cadastro de Material</h1>
         <hr />
         <form id="formWrapper" onSubmit={submit}>
           <div className="wrapper">

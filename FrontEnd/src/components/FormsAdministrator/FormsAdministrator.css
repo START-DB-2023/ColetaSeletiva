@@ -1,12 +1,3 @@
-:root{
-    --lightble: #4560c2;
-    --blue: #314795;
-    --shadowblue: #1b295c;
-    --gray: #bababa;
-    --shadowgray: #858585;
-    --white: #fff;
-}
-
 .formsAdministration{
     margin: auto;
     width: 500px;
@@ -69,6 +60,7 @@ hr{
     background-color: var(--blue);
     color: var(--white);
     margin-top: 30px;
+    margin-left: 20%;
     border: 5px solid var(--white);
     border-radius: 10px;
 }

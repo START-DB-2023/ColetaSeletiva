@@ -1,0 +1,1 @@
+import "./CollectionPoint.css"

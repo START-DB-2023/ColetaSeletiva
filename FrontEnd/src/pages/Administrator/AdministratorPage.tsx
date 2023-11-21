@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Administrator from "../../components/Administrator/Administrator";
-import { List, Heading} from "../../components";
+import { List, Heading, Button} from "../../components";
 import useQueryAdministradoras from "../../hooks/useQueryAdministradoras";
 
 function AdministratorPage() {
@@ -9,8 +9,14 @@ function AdministratorPage() {
 
     return (
         <>
-          <Link to={"/administradoras/novo"}>Nova Administradora</Link>
-          <Heading>Administradoras</Heading>
+          <Heading color="#31357f">Administradoras</Heading>
+          <center>
+            <Button color="white">
+                <Link style={{color: "var(--blue)", textDecorationLine: 'none'}} to={"/administradoras/novo"}>
+                    Nova Administradora
+                </Link>
+            </Button>
+          </center>
           <section>
             {administradorasQueryIsLoading && <p>Carregando Informações</p>}
             <List>
