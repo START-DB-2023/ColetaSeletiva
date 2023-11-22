@@ -1,0 +1,17 @@
+.c-point {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 16px;
+  }
+  
+  .c-point__name {
+    align-self: center;
+    font-size: 24px;
+    font-weight: 700;
+  }
+  
+  :where(.c-point) .c-button {
+    flex-grow: 0;
+  }
+  

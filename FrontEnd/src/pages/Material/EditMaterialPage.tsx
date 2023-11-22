@@ -6,10 +6,10 @@ import {
   Navigation,
   SubHeading,
 } from "../../components";
-import useQuerySingleMaterial from "../../hooks/useQuerySingleMaterial";
+import useQuerySingleMaterial from "../../hooks/Material/useQuerySingleMaterial";
 import Spinner from "../../components/Spinner/Spinner";
 import { useEffect, useState } from "react";
-import useUpdateMaterial from "../../hooks/useQueryUpdateMaterial";
+import useUpdateMaterial from "../../hooks/Material/useQueryUpdateMaterial";
 
 function EditMaterialPage() {
   const { id } = useParams();

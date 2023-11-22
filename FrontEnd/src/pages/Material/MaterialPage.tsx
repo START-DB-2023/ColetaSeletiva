@@ -8,7 +8,7 @@ import {
   Navigation,
   Header,
 } from "../../components";
-import useQueryMateriais from "../../hooks/useQueryMateriais";
+import useQueryMateriais from "../../hooks/Material/useQueryMateriais";
 import Spinner from "../../components/Spinner/Spinner";
 
 function MateriaisPage() {

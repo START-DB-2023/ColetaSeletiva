@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./FormsPontoColeta.css";
-import useQueryAdministradoras from "../../hooks/useQueryAdministradoras";
+import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
 import Spinner from "../Spinner/Spinner";
-import useQueryMateriais from "../../hooks/useQueryMateriais";
-import useQueryCreatePonto from "../../hooks/useQueryCreatePonto";
+import useQueryMateriais from "../../hooks/Material/useQueryMateriais";
+import useQueryCreatePonto from "../../hooks/CollectionPoint/useQueryCreatePonto";
 import { useNavigate } from "react-router";
 import { normalizeColorName } from "../../utils/normalizeColorName";
 

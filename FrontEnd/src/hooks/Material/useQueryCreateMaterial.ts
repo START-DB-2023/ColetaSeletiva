@@ -1,5 +1,5 @@
 import { useMutation } from "react-query";
-import fetchAPIData from "../utils/fetchAPIData";
+import fetchAPIData from "../../utils/fetchAPIData";
 
 const addMaterial = (data: {
   name: string;

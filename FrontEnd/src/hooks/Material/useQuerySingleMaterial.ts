@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import fetchAPIData from "../utils/fetchAPIData";
+import fetchAPIData from "../../utils/fetchAPIData";
 
 const useQuerySingleMaterial = (id: string) => {
   const {

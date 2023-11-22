@@ -1,4 +1,3 @@
-import "./NewPontoColetaPage.css";
 import {
   FormsPontoColeta,
   Header,
@@ -13,7 +12,7 @@ function NewPontoColetaPage() {
       <Header />
       <Navigation />
       <MainContainer>
-        <Heading>Novo ponto de coleta</Heading>
+        <Heading>Novo Ponto de Coleta</Heading>
         <FormsPontoColeta />
       </MainContainer>
     </>

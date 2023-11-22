@@ -8,7 +8,7 @@ import {
   Navigation,
   MainContainer,
 } from "../../components";
-import useQueryAdministradoras from "../../hooks/useQueryAdministradoras";
+import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
 
 function AdministratorPage() {
   const { administradoras, administradorasQueryIsLoading } =

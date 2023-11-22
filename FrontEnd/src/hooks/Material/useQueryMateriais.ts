@@ -1,4 +1,4 @@
-import fetchAPIData from "../utils/fetchAPIData";
+import fetchAPIData from "../../utils/fetchAPIData";
 import { useQuery } from "react-query";
 
 const useQueryMateriais = () => {

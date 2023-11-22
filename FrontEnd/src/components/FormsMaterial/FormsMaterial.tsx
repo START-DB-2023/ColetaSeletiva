@@ -1,7 +1,7 @@
 import "./FormsMaterial.css";
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import useQueryCreateMaterial from "../../hooks/useQueryCreateMaterial";
+import useQueryCreateMaterial from "../../hooks/Material/useQueryCreateMaterial";
 
 function FormsMaterial() {
   const navigate = useNavigate();
