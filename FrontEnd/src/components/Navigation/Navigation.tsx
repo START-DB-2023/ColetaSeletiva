@@ -17,6 +17,9 @@ function Navigation() {
           <li className="c-navigation__item">
             <Link to={"/administradoras"}>Administradoras</Link>
           </li>
+          <li className="c-navigation__item">
+            <Link to={"/pontos"}>Pontos de Coleta</Link>
+          </li>
         </ul>
       </nav>
     </div>
