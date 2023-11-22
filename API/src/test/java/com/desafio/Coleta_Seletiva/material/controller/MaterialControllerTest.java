@@ -1,31 +1,22 @@
 package com.desafio.Coleta_Seletiva.material.controller;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
 import com.desafio.Coleta_Seletiva.material.dto.MaterialCreateDTO;
-import com.desafio.Coleta_Seletiva.material.dto.MaterialResponseDTO;
+
 import com.desafio.Coleta_Seletiva.material.dto.mapper.MaterialMapper;
 import com.desafio.Coleta_Seletiva.material.model.Cor;
 import com.desafio.Coleta_Seletiva.material.model.Material;
@@ -76,7 +67,11 @@ public class MaterialControllerTest {
         .andExpect(jsonPath("$").isArray());
   }
 
-  
+  @Test
+  public void deleteMaterial_ShouldReturnNoContent() throws Exception {
+    long materialId = 1L;
 
-
+    mockMvc.perform(delete("/api/materiais/{id}", materialId))
+        .andExpect(status().isNoContent());
+  }
 }
