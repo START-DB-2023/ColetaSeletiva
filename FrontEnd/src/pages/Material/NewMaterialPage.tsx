@@ -1,12 +1,20 @@
-import { FormsMaterial, Heading } from "../../components";
+import {
+  FormsMaterial,
+  Header,
+  Heading,
+  MainContainer,
+  Navigation,
+} from "../../components";
 
 function NewMaterialPage() {
   return (
     <>
-      <main>
+      <Header />
+      <Navigation />
+      <MainContainer>
         <Heading>Novo Material</Heading>
         <FormsMaterial></FormsMaterial>
-      </main>
+      </MainContainer>
     </>
   );
 }
