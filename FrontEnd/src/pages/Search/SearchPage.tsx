@@ -42,7 +42,7 @@ type Ponto = {
 };
 
 function PageSearch() {
-  const [administradoraId, setAdministradoraId] = useState<number>();
+  const [administradoraId, setAdministradoraId] = useState<number>(-1);
 
   const {
     administradorasQueryIsLoading,
@@ -55,15 +55,24 @@ function PageSearch() {
   const [filtro, setFiltro] = useState<string>("");
 
   useEffect(() => {
-    if (filtro.trim() === "") {
-      // Se o filtro estiver vazio, mostra todos os pontos
-      setLista(pontosByAdm ?? pontos);
+    if (administradoraId === -1) {
+      if (filtro.trim() === "") {
+        setLista(pontos);
+      } else {
+        const novaLista = pontos.filter((ponto) =>
+          ponto.nome.toLowerCase().includes(filtro.toLowerCase())
+        );
+        setLista(novaLista);
+      }
     } else {
-      // Se o filtro não estiver vazio, filtra a lista com base no nome
-      const novaLista = (pontosByAdm ?? pontos).filter((ponto: Ponto) =>
-        ponto.nome.toLowerCase().includes(filtro.toLowerCase())
-      );
-      setLista(novaLista);
+      if (filtro.trim() === "") {
+        setLista(pontosByAdm ?? []);
+      } else {
+        const novaLista = (pontosByAdm ?? []).filter((ponto) =>
+          ponto.nome.toLowerCase().includes(filtro.toLowerCase())
+        );
+        setLista(novaLista);
+      }
     }
   }, [pontosByAdm, pontos, administradoraId, filtro]);
 
