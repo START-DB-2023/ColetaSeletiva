@@ -1,6 +1,6 @@
 import ErrorPage from "./ErrorPage/ErrorPage";
 import HomePage from "./HomePage";
-import SearchPage from "./SearchPage";
+import SearchPage from "./Search/SearchPage";
 import MaterialPage from "./Material/MaterialPage";
 import NewMaterialPage from "./Material/NewMaterialPage";
 import AdministratorPage from "./Administrator/AdministratorPage";
