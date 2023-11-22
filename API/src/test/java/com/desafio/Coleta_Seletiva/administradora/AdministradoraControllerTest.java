@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
-
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -32,17 +31,15 @@ public class AdministradoraControllerTest {
 
     @Test
     public void registerAdministradora() {
-        // Configurar comportamento do mock
+        
         AdministradoraDTO administradoraDTO = new AdministradoraDTO();
         Administradora administradora = new Administradora();
         when(administradoraMapper.mapToEntity(any())).thenReturn(administradora);
         when(administradoraService.cadastrarAdministradora(administradora)).thenReturn(administradora);
         when(administradoraMapper.mapToDTO(administradora)).thenReturn(administradoraDTO);
 
-        // Executar o método a ser testado
         ResponseEntity<AdministradoraDTO> response = administradoraController.cadastrarAdministradora(administradoraDTO);
 
-        // Verificar o resultado
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertNotNull(response.getBody());
     }
