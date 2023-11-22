@@ -8,7 +8,7 @@ const useQueryPonto = () => {
     error: pontosQueryError,
     data: pontos,
   } = useQuery({
-    queryKey: ['pontos'],
+    queryKey: ["pontos"],
     select: (responseData) => {
       return responseData.data;
     },
