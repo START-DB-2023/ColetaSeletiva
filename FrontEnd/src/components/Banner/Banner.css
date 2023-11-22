@@ -1,0 +1,33 @@
+.c-banner{
+    border-bottom: 8px solid var(--darkBlue);
+    display: flex;
+}
+
+.c-banner__information{
+    padding-top: 5vw;
+    padding-left: 4vw;
+    color: #31357f;
+}
+.c-banner__information__logo{
+    margin-left: 0.5vw;
+    width: 8vw;
+}
+
+.c-banner__information__name{
+    margin-top: 1vw;
+    margin-left: 1.5vw;
+    font-size: 4vw;
+    font-weight: 700;
+}
+
+.c-banner__information__slogan{
+    margin-top: 1vw;
+    margin-left: 1.5vw;
+    font-size: 3vw;
+    font-weight: 400;
+    opacity: 0.7;
+}
+
+.c-banner__image{
+    width: 70vw;
+}

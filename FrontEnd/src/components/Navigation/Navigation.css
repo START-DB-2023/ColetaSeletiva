@@ -20,3 +20,11 @@
   font-weight: 700;
   font-family: var(--raleway);
 }
+
+.c-navigation__item a{
+  color: #434CC1;
+}
+
+
+
+
