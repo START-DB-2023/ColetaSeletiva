@@ -9,6 +9,7 @@ import {
   Header,
 } from "../../components";
 import useQueryMateriais from "../../hooks/useQueryMateriais";
+import Spinner from "../../components/Spinner/Spinner";
 
 function MateriaisPage() {
   const { materiais, materiaisQueryIsLoading } = useQueryMateriais();
@@ -31,18 +32,29 @@ function MateriaisPage() {
           </Button>
         </center>
         <section>
-          {materiaisQueryIsLoading && <p>Carregando informações</p>}
+          {materiaisQueryIsLoading && <Spinner />}
           <List>
             {materiais?.map(
-              (material: { nome: string; cor: string; descricao: string }) => {
-                const { nome, cor, descricao } = material;
+              (material: {
+                id: number;
+                nome: string;
+                cor: string;
+                descricao: string;
+              }) => {
+                const { id, nome, cor, descricao } = material;
                 return (
-                  <Material
-                    key={nome}
-                    nome={nome}
-                    cor={cor}
-                    descricao={descricao}
-                  />
+                  <>
+                    <Material
+                      key={id}
+                      nome={nome}
+                      cor={cor}
+                      descricao={descricao}
+                    >
+                      <Button color="yellow">
+                        <Link to={`/materiais/editar/${id}`}>Editar ✏️</Link>
+                      </Button>
+                    </Material>
+                  </>
                 );
               }
             )}

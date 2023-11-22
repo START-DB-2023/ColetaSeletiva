@@ -6,6 +6,7 @@ import NewMaterialPage from "./Material/NewMaterialPage";
 import AdministratorPage from "./Administrator/AdministratorPage";
 import NewAdministratorPage from "./Administrator/NewAdministratorPage";
 import NewPontoColetaPage from "./PontoColeta/NewPontoColetaPage";
+import EditMaterialPage from "./Material/EditMaterialPage";
 
 export {
   ErrorPage,
@@ -16,4 +17,5 @@ export {
   AdministratorPage,
   NewAdministratorPage,
   NewPontoColetaPage,
+  EditMaterialPage,
 };
