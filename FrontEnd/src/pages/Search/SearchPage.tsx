@@ -5,6 +5,9 @@ import Spinner from "../../components/Spinner/Spinner";
 import useQueryPontosByAdm from "../../hooks/CollectionPoint/useQueryPontosByAdm";
 import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
 import CollectionPoint from "../../components/CollectionPoint/CollectionPoint";
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+// import { LatLngTuple } from "leaflet";
 
 type Material = {
   id: number;
@@ -59,7 +62,7 @@ function PageSearch() {
       if (filtro.trim() === "") {
         setLista(pontos);
       } else {
-        const novaLista = pontos.filter((ponto) =>
+        const novaLista = pontos.filter((ponto: Ponto) =>
           ponto.nome.toLowerCase().includes(filtro.toLowerCase())
         );
         setLista(novaLista);
@@ -68,7 +71,7 @@ function PageSearch() {
       if (filtro.trim() === "") {
         setLista(pontosByAdm ?? []);
       } else {
-        const novaLista = (pontosByAdm ?? []).filter((ponto) =>
+        const novaLista = (pontosByAdm ?? []).filter((ponto: Ponto) =>
           ponto.nome.toLowerCase().includes(filtro.toLowerCase())
         );
         setLista(novaLista);
@@ -77,7 +80,7 @@ function PageSearch() {
   }, [pontosByAdm, pontos, administradoraId, filtro]);
 
   if (pontosQueryIsLoading || administradorasQueryIsLoading) {
-    return;
+    return <Spinner />;
   }
 
   return (
@@ -135,6 +138,46 @@ function PageSearch() {
               return <CollectionPoint key={ponto.id} ponto={ponto} />;
             })}
           </List>
+        </section>
+        <section>
+          <MapContainer
+            center={
+              lista?.length > 0
+                ? [lista[0]?.latitude, lista[0]?.longitude]
+                : [51.505, -0.09]
+            }
+            zoom={2}
+            style={{ height: "400px", width: "100%" }}
+          >
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="© OpenStreetMap contributors"
+            />
+
+            {lista?.map((ponto) => (
+              <Marker
+                key={ponto.id}
+                position={[ponto.latitude, ponto.longitude]}
+              >
+                <Popup>
+                  <div>
+                    <h2>{ponto.nome}</h2>
+                    <p>{ponto.descricao}</p>
+                    <p>Materiais:</p>
+                    <ul>
+                      {ponto?.materiais?.map((material) => {
+                        return (
+                          <li key={material.id}>
+                            {material.nome} - {material.cor}
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                </Popup>
+              </Marker>
+            ))}
+          </MapContainer>
         </section>
       </MainContainer>
     </>
