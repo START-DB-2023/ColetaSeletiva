@@ -1,9 +1,10 @@
-import { Header, MainContainer, Navigation, News } from "../components";
+import { MainContainer, Navigation, News } from "../components";
+import Banner from "../components/Banner/Banner";
 
 function HomePage() {
   return (
     <>
-      <Header />
+      <Banner />
       <Navigation />
 
       <MainContainer>
