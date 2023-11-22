@@ -3,7 +3,6 @@ package com.desafio.Coleta_Seletiva.ponto_coleta.controller;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,10 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
-import com.desafio.Coleta_Seletiva.material.dto.MaterialDescriptionDTO;
-import com.desafio.Coleta_Seletiva.material.dto.MaterialResponseDTO;
-import com.desafio.Coleta_Seletiva.material.dto.mapper.MaterialMapper;
-import com.desafio.Coleta_Seletiva.material.model.Material;
+
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaCreateDTO;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaUpdateDTO;
@@ -61,7 +57,7 @@ public class PontoColetaController {
     return ResponseEntity.ok().body(created);
   }
 
-  @GetMapping("/todos")
+  @GetMapping
   @Operation(summary = "Recuperar Todos os Pontos de Coleta", description = "Recupera uma lista de todos os pontos de coleta")
   public @ResponseBody ResponseEntity<List<PontoColeta>> getAllPontosDeColeta() {
     List<PontoColeta> pontos = pontoColetaService.getAllPontosDeColeta();
@@ -84,7 +80,7 @@ public class PontoColetaController {
   @PatchMapping("/{id}")
   public ResponseEntity<PontoColeta> updateDescription(@Valid @PathVariable long id,
       @Valid @RequestBody PontoColetaUpdateDTO dto) {
-   PontoColeta ponto = pontoColetaService.update(id, dto);
+    PontoColeta ponto = pontoColetaService.update(id, dto);
     return ResponseEntity.ok().body(ponto);
   }
 
