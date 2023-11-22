@@ -82,7 +82,7 @@ function CollectionPoint(props: { ponto: Ponto }) {
         <p>Materiais Coletados:</p>
         {materiais.map((material) => {
           return (
-            <div>
+            <div key={material.id}>
               <p>
                 {material.nome} - {material.cor}
               </p>

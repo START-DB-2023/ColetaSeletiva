@@ -22,10 +22,10 @@ function FormsPontoColeta() {
 
   const [nome, setNome] = useState("");
   const [descricao, setDescricao] = useState("");
-  const [latitude, setLatitude] = useState<number>();
-  const [longitude, setLongitude] = useState<number>();
+  const [latitude, setLatitude] = useState<string>("");
+  const [longitude, setLongitude] = useState<string>("");
   const [logradouro, setLogradouro] = useState("");
-  const [numero, setNumero] = useState(0);
+  const [numero, setNumero] = useState("");
   const [bairro, setBairro] = useState("");
   const [estado, setEstado] = useState("");
   const [pais, setPais] = useState("");
@@ -54,7 +54,7 @@ function FormsPontoColeta() {
       alert("Logradouro inválido!");
       return;
     }
-    if (numero <= 0) {
+    if (+numero <= 0) {
       alert("Numero inválido!");
       return;
     }
@@ -97,10 +97,10 @@ function FormsPontoColeta() {
     const data = {
       nome: nome,
       descricao: descricao,
-      latitude: latitude!,
-      longitude: longitude!,
+      latitude: +latitude,
+      longitude: +longitude,
       logradouro: logradouro,
-      numero: numero,
+      numero: +numero,
       bairro: bairro,
       estado: estado,
       pais: pais,
@@ -150,9 +150,9 @@ function FormsPontoColeta() {
           <label htmlFor="latitudePonto">Latitude</label>
           <input
             id="latitudePonto"
-            type="number"
+            type="text"
             value={latitude}
-            onChange={(e) => setLatitude(+e.currentTarget.value)}
+            onChange={(e) => setLatitude(e.currentTarget.value)}
             required
           />
         </div>
@@ -160,9 +160,9 @@ function FormsPontoColeta() {
           <label htmlFor="longitudePonto">Longitude</label>
           <input
             id="longitudePonto"
-            type="number"
+            type="text"
             value={longitude}
-            onChange={(e) => setLongitude(+e.currentTarget.value)}
+            onChange={(e) => setLongitude(e.currentTarget.value)}
             required
           />
         </div>
@@ -181,9 +181,9 @@ function FormsPontoColeta() {
           <label htmlFor="numeroPonto">Numero</label>
           <input
             id="numeroPonto"
-            type="number"
+            type="text"
             value={numero}
-            onChange={(e) => setNumero(+e.currentTarget.value)}
+            onChange={(e) => setNumero(e.currentTarget.value)}
             required
           />
         </div>
