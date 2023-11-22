@@ -64,10 +64,10 @@ public class PontoColetaController {
     return ResponseEntity.ok().body(pontos);
   }
 
-  @GetMapping("/por-administradora")
+  @GetMapping("/por-administradora/{administradoraId}")
   @Operation(summary = "Recuperar Pontos de Coleta Por Administradora", description = "Recupera uma lista de pontos de coleta por administradora")
   public @ResponseBody ResponseEntity<List<PontoColeta>> getPontosDeColetaPorAdministradora(
-      @RequestParam Long administradoraId) {
+      @PathVariable Long administradoraId) {
     List<PontoColeta> pontos = pontoColetaService.getPontosDeColetaPorAdministradora(administradoraId);
     return ResponseEntity.ok().body(pontos);
   }
