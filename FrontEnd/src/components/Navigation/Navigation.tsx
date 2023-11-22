@@ -1,14 +1,24 @@
+import { Link } from "react-router-dom";
 import "./Navigation.css";
 function Navigation() {
   return (
     <div>
-    <nav className="c-navigation">
-      <ul className="c-navigation__list">
-        <li className="c-navigation__item">Cadastrar</li>
-        <li className="c-navigation__item">Buscar</li>
-        <li className="c-navigation__item">Sobre</li>
-      </ul>
-    </nav>
+      <nav className="c-navigation">
+        <ul className="c-navigation__list">
+          <li className="c-navigation__item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="c-navigation__item">
+            <Link to="/busca">Busca</Link>
+          </li>
+          <li className="c-navigation__item">
+            <Link to={"/materiais"}>Materiais</Link>
+          </li>
+          <li className="c-navigation__item">
+            <Link to={"/administradoras"}>Administradoras</Link>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }

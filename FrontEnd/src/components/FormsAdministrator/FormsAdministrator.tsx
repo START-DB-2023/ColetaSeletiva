@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 import './FormsAdministrator.css';
-import useQueryCreateAdministrator from '../../hooks/useQueryCreateAdministrator';
+import useQueryCreateAdministrator from '../../hooks/Administrators/useQueryCreateAdministrator';
 
 
 function FormsAdministrator() {

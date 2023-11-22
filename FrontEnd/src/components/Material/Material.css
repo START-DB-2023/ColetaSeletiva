@@ -2,10 +2,15 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  gap: 16px;
 }
 
 .c-material__name {
   align-self: center;
   font-size: 24px;
   font-weight: 700;
+}
+
+:where(.c-material) .c-button {
+  flex-grow: 0;
 }
