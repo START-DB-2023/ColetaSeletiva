@@ -1,5 +1,6 @@
 package com.desafio.Coleta_Seletiva.material.controller;
 
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -94,7 +95,11 @@ public class MaterialControllerTest {
 
   @Test
   public void deleteMaterial_ShouldReturnNoContent() throws Exception {
+    // Mockando o serviço para retornar sucesso na exclusão
     long materialId = 1L;
+
+    // Configurando o comportamento esperado no serviço
+    doNothing().when(materialService).delete(materialId);
 
     mockMvc.perform(delete("/api/materiais/{id}", materialId))
         .andExpect(status().isNoContent());
