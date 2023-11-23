@@ -75,4 +75,19 @@ public class AdministradoraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
     }
+
+    @Test
+    public void disableAdministradora_ShouldReturnOk() {
+        long administradoraId = 1L;
+        Administradora administradoraDesativada = new Administradora();
+
+        when(administradoraService.desativarAdministradora(administradoraId)).thenReturn(administradoraDesativada);
+        when(administradoraMapper.mapToDTO(administradoraDesativada)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<Object> response = administradoraController.desativarAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+
 }
