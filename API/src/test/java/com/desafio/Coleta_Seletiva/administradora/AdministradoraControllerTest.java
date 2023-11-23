@@ -21,6 +21,7 @@ import com.desafio.Coleta_Seletiva.administradora.dto.AdministradoraDTO;
 import com.desafio.Coleta_Seletiva.administradora.dto.mapper.AdministradoraMapper;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
+import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
 public class AdministradoraControllerTest {
@@ -70,7 +71,8 @@ public class AdministradoraControllerTest {
         when(administradoraService.obterAdministradoraPorId(administradoraId)).thenReturn(administradora);
         when(administradoraMapper.mapToDTO(administradora)).thenReturn(new AdministradoraDTO());
 
-        ResponseEntity<AdministradoraDTO> response = administradoraController.obterAdministradoraPorId(administradoraId);
+        ResponseEntity<AdministradoraDTO> response = administradoraController
+                .obterAdministradoraPorId(administradoraId);
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
@@ -88,6 +90,19 @@ public class AdministradoraControllerTest {
 
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertNotNull(response.getBody());
+    }
+
+    @Test
+    public void disableAdministradora_ShouldReturnNotFound() {
+        long administradoraId = 1L;
+
+        when(administradoraService.desativarAdministradora(administradoraId))
+                .thenThrow(new AdministradoraNotFoundException("Administradora não encontrada"));
+
+        ResponseEntity<Object> response = administradoraController.desativarAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals("Administradora não encontrada", response.getBody());
     }
 
 }
