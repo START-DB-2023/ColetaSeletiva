@@ -132,7 +132,7 @@ function PageSearch() {
           />
         </div>
         <section>
-          {pontosQueryIsLoading && <p>Carregando Informações</p>}
+          {pontosQueryIsLoading && <Spinner />}
           <List>
             {lista?.map((ponto: Ponto) => {
               return <CollectionPoint key={ponto.id} ponto={ponto} />;
