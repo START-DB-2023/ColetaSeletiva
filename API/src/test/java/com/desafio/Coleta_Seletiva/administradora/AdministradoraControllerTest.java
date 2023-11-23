@@ -24,6 +24,7 @@ import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService
 
 @ExtendWith(MockitoExtension.class)
 public class AdministradoraControllerTest {
+
     @Mock
     private AdministradoraService administradoraService;
 
@@ -61,5 +62,17 @@ public class AdministradoraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(2, response.getBody().size());
     }
-}
 
+    @Test
+    public void getAdministradoraById_ShouldReturnAdministradora() {
+        Long administradoraId = 1L;
+        Administradora administradora = new Administradora();
+        when(administradoraService.obterAdministradoraPorId(administradoraId)).thenReturn(administradora);
+        when(administradoraMapper.mapToDTO(administradora)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<AdministradoraDTO> response = administradoraController.obterAdministradoraPorId(administradoraId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+}
