@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import CollectionPoint from "../../components/CollectionPoint/CollectionPoint";
+import ListCP from "../../components/ListCP/ListCP";
 import {
-  List,
   Heading,
   Button,
   Header,
@@ -9,6 +9,7 @@ import {
   MainContainer,
 } from "../../components";
 import useQueryPonto from "../../hooks/CollectionPoint/useQueryPontos";
+
 
 type Material = {
   id: number;
@@ -67,11 +68,11 @@ function PontoPage() {
         </center>
         <section>
           {pontosQueryIsLoading && <p>Carregando Informações</p>}
-          <List>
+          <ListCP>
             {pontos?.map((ponto: Ponto) => {
               return <CollectionPoint key={ponto.id} ponto={ponto} />;
             })}
-          </List>
+          </ListCP>
         </section>
       </MainContainer>
     </>

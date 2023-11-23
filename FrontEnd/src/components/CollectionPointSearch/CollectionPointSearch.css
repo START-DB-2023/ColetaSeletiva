@@ -5,7 +5,7 @@
     gap: 16px;
   }
   
-  .c-CP__info__point__name {
+  .c-point__name {
     align-self: center;
     font-size: 24px;
     font-weight: 700;
@@ -14,4 +14,3 @@
   :where(.c-point) .c-button {
     flex-grow: 0;
   }
-  

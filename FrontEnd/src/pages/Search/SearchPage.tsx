@@ -4,9 +4,9 @@ import useQueryPonto from "../../hooks/CollectionPoint/useQueryPontos";
 import Spinner from "../../components/Spinner/Spinner";
 import useQueryPontosByAdm from "../../hooks/CollectionPoint/useQueryPontosByAdm";
 import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
-import CollectionPoint from "../../components/CollectionPoint/CollectionPoint";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
+import CollectionPointSearch from "../../components/CollectionPointSearch/CollectionPointSearch";
 // import { LatLngTuple } from "leaflet";
 
 type Material = {
@@ -135,7 +135,7 @@ function PageSearch() {
           {pontosQueryIsLoading && <p>Carregando Informações</p>}
           <List>
             {lista?.map((ponto: Ponto) => {
-              return <CollectionPoint key={ponto.id} ponto={ponto} />;
+              return <CollectionPointSearch key={ponto.id} ponto={ponto} />;
             })}
           </List>
         </section>

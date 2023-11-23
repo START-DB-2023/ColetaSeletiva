@@ -1,5 +1,4 @@
-import { Link } from "react-router-dom";
-import "./CollectionPoint.css";
+import "./CollectionPointSearch.css";
 
 type Material = {
   id: number;
@@ -36,7 +35,7 @@ type Ponto = {
   materiais: Material[];
 };
 
-function CollectionPoint(props: { ponto: Ponto }) {
+function CollectionPointSearch(props: { ponto: Ponto }) {
   const {
     nome,
     descricao,
@@ -55,35 +54,13 @@ function CollectionPoint(props: { ponto: Ponto }) {
     materiais,
   } = props.ponto;
   return (
-    <div className="c-CP">
-
-      <div className="c-CP__info">
-        <div className="c-CP__info__main">
-          <p className="c-CP__info__main__name">{nome}</p>
-          <p className="c-CP__info__main__description">{descricao}</p>
-        </div>
-
-        <div className="c-CP__info__mapInfo">
-          <div className="c-CP__info__mapInfo__lat">
-            <p className="c-CP__info__mapInfo__lat__text">Lat: {latitude}</p>
-          </div>
-          <div className="c-CP__indo__mapInfo__lon">
-            <p className="c-CP__info__mapInfo__lon__text">Lon: {longitude}</p>
-          </div>
-          <Link to={'/busca'}>
-            <button className="c-CP__info__mapInfo__seeOnMap">
-              Ver no Mapa
-            </button>
-          </Link>
-          
-        </div>
-        
-      </div>
-      <div className="c-CP__Disponibility">
-
-      </div>
+    <div className="c-pointContainer">
       <li className="c-point">
-        
+        <p className="c-point__name">{nome}</p>
+        <p>{descricao}</p>
+        <p>
+          Lat: {latitude} | Lon: {longitude}
+        </p>
         <p>
           Pais: {pais} | Estado: {estado} | Bairro: {bairro}
         </p>
@@ -118,4 +95,4 @@ function CollectionPoint(props: { ponto: Ponto }) {
   );
 }
 
-export default CollectionPoint;
+export default CollectionPointSearch;
