@@ -44,10 +44,10 @@ function FormsAdministrator() {
         <>
         <div className='formsAdministration'>
             <h1 className='title'>Cadastro de Instituição Administrativa</h1>
-            <hr />
+            <hr className='administratorHr'/>
                 <form id='formWrapper' onSubmit={submit}>
                     <div className='wrapper'>
-                        <h3 className='subtitle'>Nome:</h3>
+                        <h3 className='subtitleA'>Nome:</h3>
                         <input 
                           className='inputName' 
                           type='text' 
@@ -59,7 +59,7 @@ function FormsAdministrator() {
                         ></input>
                     </div>
                     <div className='wrapper'>
-                        <h3 className='subtitle'>Estado:</h3>
+                        <h3 className='subtitleA'>Estado:</h3>
                         <input 
                           className='inputState' 
                           type='text' 
@@ -70,7 +70,7 @@ function FormsAdministrator() {
                         ></input>
                     </div>
                     <div className='wrapper'>
-                        <h3 className='subtitle'>Cidade:</h3>
+                        <h3 className='subtitleA'>Cidade:</h3>
                         <input 
                           className='inputCity' 
                           type='text' 
@@ -80,7 +80,7 @@ function FormsAdministrator() {
                           placeholder='Taboão da Serra'></input>
                     </div>
                     <div className='wrapper'>
-                        <h3 className='subtitle'>Descrição:</h3>
+                        <h3 className='subtitleA'>Descrição:</h3>
                         <textarea 
                           className='inputDesc' 
                           rows={3} 

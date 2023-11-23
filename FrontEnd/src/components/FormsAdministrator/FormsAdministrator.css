@@ -1,11 +1,12 @@
 .formsAdministration{
     margin: auto;
     width: 500px;
-    height: 630px;
+    height: 530px;
     background-color: var(--gray);
     border: 5px solid var(--blue);
     border-radius: 20px;
     margin-bottom: 70px;
+    text-align: center;
 }
 
 .title{
@@ -15,13 +16,14 @@
 }
 
 .wrapper{
-    margin: 0px 30px;
+    margin: auto;
     justify-content: left;
 }
 
-.subtitle{
+.subtitleA{
     margin-top: 20px;
     margin-bottom: 5px;
+    margin-left: 30px;
     display: flex;
     color: var(--blue);
 }
@@ -48,8 +50,8 @@
     resize: none;
 }
 
-hr{
-    width: 310px;
+.administratorHr{
+    width: 260px;
     height: 5px;
     background-color: var(--blue);
     border-radius: 15px;
@@ -60,7 +62,6 @@ hr{
     background-color: var(--blue);
     color: var(--white);
     margin-top: 30px;
-    margin-left: 20%;
     border: 5px solid var(--white);
     border-radius: 10px;
 }

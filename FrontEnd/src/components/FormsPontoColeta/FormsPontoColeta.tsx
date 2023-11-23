@@ -120,7 +120,7 @@ function FormsPontoColeta() {
 
   return (
     <div className="formsMaterial">
-      <hr />
+      <hr className="collectPointHr"/>
       <form id="formWrapper" onSubmit={submit}>
         <div>
           <label htmlFor="namePonto">Nome </label>

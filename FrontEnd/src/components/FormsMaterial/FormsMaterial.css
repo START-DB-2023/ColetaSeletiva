@@ -9,12 +9,13 @@
 
 .formsMaterial{
     margin: auto;
-    width: 350px;
-    height: 560px;
+    width: 340px;
+    height: 490px;
     background-color: var(--gray);
     border: 5px solid var(--blue);
     border-radius: 20px;
     margin-bottom: 50px;
+    text-align: center;
 }
 
 .title{
@@ -24,13 +25,14 @@
 }
 
 .wrapper{
-    margin: 0px 30px;
+    margin: auto;
     justify-content: left;
 }
 
-.subtitle{
+.subtitleM{
     margin-top: 20px;
     margin-bottom: 5px;
+    margin-left: 25px;
     display: flex;
     color: var(--blue);
 }
@@ -57,7 +59,7 @@
 }
 
 .inputColor{
-    width: 285px;
+    width: 280px;
 }
 
 .inputDescription{
@@ -65,8 +67,8 @@
     resize: none;
 }
 
-hr{
-    width: 190px;
+.materialHr{
+    width: 140px;
     height: 5px;
     background-color: var(--blue);
     border-radius: 15px;

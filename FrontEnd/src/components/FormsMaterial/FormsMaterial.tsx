@@ -42,10 +42,10 @@ function FormsMaterial() {
     <>
       <div className="formsMaterial">
         <h1 className="title">Cadastro de Material</h1>
-        <hr />
+        <hr className="materialHr"/>
         <form id="formWrapper" onSubmit={submit}>
           <div className="wrapper">
-            <h3 className="subtitle">Nome:</h3>
+            <h3 className="subtitleM">Nome:</h3>
             <input
               className="inputType"
               type="text"
@@ -57,7 +57,7 @@ function FormsMaterial() {
             ></input>
           </div>
           <div className="wrapper">
-            <h3 className="subtitle">Cor:</h3>
+            <h3 className="subtitleM">Cor:</h3>
             <select
               className="inputColor"
               onChange={selectChange}
@@ -81,7 +81,7 @@ function FormsMaterial() {
             </select>
           </div>
           <div className="wrapper">
-            <h3 className="subtitle">Descrição:</h3>
+            <h3 className="subtitleM">Descrição:</h3>
             <textarea
               className="inputDescription"
               rows={4}

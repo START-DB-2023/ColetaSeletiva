@@ -1,4 +1,5 @@
 .c-banner{
+    background-color: var(--white);
     border-bottom: 8px solid var(--darkBlue);
     display: flex;
 }
