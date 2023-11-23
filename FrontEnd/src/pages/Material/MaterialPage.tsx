@@ -20,7 +20,7 @@ function MateriaisPage() {
       <Header />
       <Navigation />
       <MainContainer>
-        <Heading color="#31357f">Materiais</Heading>
+        <Heading>Materiais</Heading>
         <center>
           <Button color="white">
             <Link
@@ -50,9 +50,11 @@ function MateriaisPage() {
                       cor={cor}
                       descricao={descricao}
                     >
-                      <Button color="yellow">
-                        <Link to={`/materiais/editar/${id}`}>Editar ✏️</Link>
-                      </Button>
+                      <Link 
+                            style={{ fontSize: "16px", paddingLeft: "10px", lineHeight: "2",}}
+                            to={`/materiais/editar/${id}`}>
+                              ✏️
+                      </Link>
                     </Material>
                   </>
                 );

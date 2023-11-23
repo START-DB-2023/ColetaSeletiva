@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./Navigation.css";
 function Navigation() {
   return (
-    <div>
+    <div style={{marginBottom: "3vw"}}>
       <nav className="c-navigation">
         <ul className="c-navigation__list">
           <li className="c-navigation__item">
