@@ -1,0 +1,140 @@
+.formsCollectionPoint{
+    margin: auto;
+    width: 700px;
+    height: 620px;
+    background-color: var(--gray);
+    border: 5px solid var(--blue);
+    border-radius: 20px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.title{
+    color: #314795;
+    font-size: 40px;
+    margin: 25px 0px 10px 0px;
+}
+
+.collectionPointHr{
+    width: 470px;
+    height: 5px;
+    background-color: var(--blue);
+    border-radius: 15px;
+}
+
+.c-forms{
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+}
+
+.c-forms label{
+    margin-top: 15px;
+    margin-bottom: 5px;
+    display: flex;
+    font-size: 15px;
+    color: var(--blue);
+}
+
+.c-forms input{
+    background-color: var(--white);
+    color: black;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+    width: 280px;
+    font-size: 17px;
+    font-weight: 600;
+    height: 25px;
+}
+
+.c-forms textarea{
+    background-color: var(--white);
+    color: black;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+    width: 280px;
+    height: 82px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.c-forms__double{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.c-forms__double input{
+    width: 130px;
+}
+
+.c-forms__information__administrator{
+    background-color: var(--white);
+    color: #858585;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+    width: 280px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.c-forms__information__material{
+    background-color: var(--white);
+    color: black;
+    resize: none;
+    border: none;
+    border-radius: 5px;
+    border-bottom: 4px solid var(--blue);
+    text-align: center;
+    width: 280px;
+    height: 82px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.c-forms__divisor{
+    background-color: #314795;
+    border-radius: 10px;
+    margin: 0px 20px;
+    width: 6px;
+}
+
+.subtitleP{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    display: flex;
+    font-size: 15px;
+    color: var(--blue);
+}
+
+.registerButtonP{
+    width: 20vh;
+    background-color: var(--blue);
+    color: var(--white);
+    margin-top: 20px;
+    border: 5px solid var(--white);
+    border-radius: 10px;
+}
+
+.registerButtonP:hover{
+    background-color: var(--lightble);
+    color: var(--shadowgray);
+    border: 5px solid var(--shadowgray);
+}
+
+.registerButtonP:active{
+    background-color: var(--shadowblue);
+    color: var(--gray);
+    border: 5px solid var(--gray);
+}

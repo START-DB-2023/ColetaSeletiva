@@ -19,7 +19,7 @@ function AdministratorPage() {
     <>
       <Header />
       <Navigation />
-      <Heading color="#31357f">Administradoras</Heading>
+      <Heading>Administradoras</Heading>
       <MainContainer>
         <center>
           <Button color="white">

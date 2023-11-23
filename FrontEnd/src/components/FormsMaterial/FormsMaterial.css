@@ -24,6 +24,13 @@
     margin: 25px 0px 10px 0px;
 }
 
+.materialHr{
+    width: 140px;
+    height: 5px;
+    background-color: var(--blue);
+    border-radius: 15px;
+}
+
 .wrapper{
     margin: auto;
     justify-content: left;
@@ -34,6 +41,7 @@
     margin-bottom: 5px;
     margin-left: 25px;
     display: flex;
+    font-size: 15px;
     color: var(--blue);
 }
 
@@ -60,6 +68,7 @@
 
 .inputColor{
     width: 280px;
+    color: var(--evendarkergray);
 }
 
 .inputDescription{
@@ -67,14 +76,7 @@
     resize: none;
 }
 
-.materialHr{
-    width: 140px;
-    height: 5px;
-    background-color: var(--blue);
-    border-radius: 15px;
-}
-
-.registerButton{
+.registerButtonM{
     width: 20vh;
     background-color: var(--blue);
     color: var(--white);
@@ -83,13 +85,13 @@
     border-radius: 10px;
 }
 
-.registerButton:hover{
+.registerButtonM:hover{
     background-color: var(--lightble);
     color: var(--shadowgray);
     border: 5px solid var(--shadowgray);
 }
 
-.registerButton:active{
+.registerButtonM:active{
     background-color: var(--shadowblue);
     color: var(--gray);
     border: 5px solid var(--gray);

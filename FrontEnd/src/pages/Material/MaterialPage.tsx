@@ -20,7 +20,7 @@ function MateriaisPage() {
       <Header />
       <Navigation />
       <MainContainer>
-        <Heading color="#31357f">Materiais</Heading>
+        <Heading>Materiais</Heading>
         <center>
           <Button color="white">
             <Link

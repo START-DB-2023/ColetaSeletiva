@@ -84,15 +84,14 @@ function FormsMaterial() {
             <h3 className="subtitleM">Descrição:</h3>
             <textarea
               className="inputDescription"
-              rows={4}
-              maxLength={200}
+              maxLength={140}
               required
               value={description}
               onChange={(event) => setDescription(event.currentTarget.value)}
               placeholder="Descrição do Material..."
             ></textarea>
           </div>
-          <button className="registerButton" type="submit">
+          <button className="registerButtonM" type="submit">
             Cadastrar
           </button>
         </form>

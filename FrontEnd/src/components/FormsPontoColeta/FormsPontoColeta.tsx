@@ -119,218 +119,241 @@ function FormsPontoColeta() {
   };
 
   return (
-    <div className="formsMaterial">
-      <hr className="collectPointHr"/>
+    <div className="formsCollectionPoint">
+      <h1 className="title">Cadastro de Pontos de Coleta</h1>
+      <hr className="collectionPointHr"/>
       <form id="formWrapper" onSubmit={submit}>
-        <div>
-          <label htmlFor="namePonto">Nome </label>
-          <input
-            id="namePonto"
-            type="text"
-            value={nome}
-            onChange={(e) => setNome(e.currentTarget.value)}
-            placeholder="Ponto X"
-            maxLength={255}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="descricaoPonto">Descricao </label>
-          <input
-            id="descricaoPonto"
-            type="text"
-            value={descricao}
-            onChange={(e) => setDescricao(e.currentTarget.value)}
-            placeholder="Seleciona os materiais..."
-            maxLength={255}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="latitudePonto">Latitude</label>
-          <input
-            id="latitudePonto"
-            type="text"
-            value={latitude}
-            onChange={(e) => setLatitude(e.currentTarget.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="longitudePonto">Longitude</label>
-          <input
-            id="longitudePonto"
-            type="text"
-            value={longitude}
-            onChange={(e) => setLongitude(e.currentTarget.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="logradouroPonto">Logradouro</label>
-          <input
-            id="logradouroPonto"
-            type="text"
-            value={logradouro}
-            onChange={(e) => setLogradouro(e.currentTarget.value)}
-            placeholder="Praça"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="numeroPonto">Numero</label>
-          <input
-            id="numeroPonto"
-            type="text"
-            value={numero}
-            onChange={(e) => setNumero(e.currentTarget.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="logradouroPonto">Bairro</label>
-          <input
-            id="bairroPonto"
-            type="text"
-            value={bairro}
-            onChange={(e) => setBairro(e.currentTarget.value)}
-            placeholder="Centro"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="estadoPonto">UF(Sigla)</label>
-          <input
-            id="estadoPonto"
-            type="text"
-            value={estado}
-            onChange={(e) => setEstado(e.currentTarget.value)}
-            placeholder="SP"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="paisPonto">País</label>
-          <input
-            id="paisPonto"
-            type="text"
-            value={pais}
-            onChange={(e) => setPais(e.currentTarget.value)}
-            placeholder="Brasil"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="cepPonto">CEP</label>
-          <input
-            id="cepPonto"
-            type="text"
-            value={cep}
-            onChange={(e) => setCep(e.currentTarget.value)}
-            placeholder="xxxxx-abc"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="inicioPonto">Início (HH:mm)</label>
-          <input
-            id="inicioPonto"
-            type="text"
-            value={horarioInicio}
-            onChange={(e) => setHorarioInicio(e.currentTarget.value)}
-            placeholder="07:00"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="terminoPonto">Término (HH:mm)</label>
-          <input
-            id="terminoPonto"
-            type="text"
-            value={horarioTermino}
-            onChange={(e) => setHorarioTermino(e.currentTarget.value)}
-            placeholder="19:00"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="funcionamentoPonto">Funcionamento (dia-dia)</label>
-          <input
-            id="funcionamentoPonto"
-            type="text"
-            value={funcionamento}
-            onChange={(e) => setFuncionamento(e.currentTarget.value)}
-            placeholder="seg-sex"
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="selectAdministradora">
-            Selecione uma administradora
-          </label>
-          {administradorasQueryIsLoading && <Spinner />}
-          {!administradorasQueryIsLoading && !administradorasQueryIsError && (
-            <select
-              id="selectAdministradora"
-              value={administradoraId}
-              onChange={(e) => setAdministradoraId(+e.currentTarget.value)}
-              required
-            >
-              <option value={-1} disabled>
-                Selecione uma administradora
-              </option>
-              {administradoras?.map(
-                (adm: {
-                  id: number;
-                  nome: string;
-                  cidade: string;
-                  estado: string;
-                }) => {
-                  const { id, nome, cidade, estado } = adm;
-                  return (
-                    <option value={id} key={id}>
-                      {nome} - {cidade} - {estado}
-                    </option>
-                  );
-                }
+        <div className="c-forms">
+          <div className="c-forms__location">
+            <div>
+              <label htmlFor="namePonto">Nome:</label>
+              <input
+                id="namePonto"
+                type="text"
+                value={nome}
+                onChange={(e) => setNome(e.currentTarget.value)}
+                placeholder="Coleta das Artes - PC 7"
+                maxLength={255}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="paisPonto" >País:</label>
+              <input
+                id="paisPonto"
+                type="text"
+                value={pais}
+                onChange={(e) => setPais(e.currentTarget.value)}
+                placeholder="Brasil"
+                required
+              />
+            </div>
+            <div className="c-forms__double">
+              <div>
+                <label htmlFor="estadoPonto" >UF:</label>
+                <input
+                  id="estadoPonto"
+                  type="text"
+                  value={estado}
+                  onChange={(e) => setEstado(e.currentTarget.value)}
+                  placeholder="SP"
+                  required
+                />
+              </div>
+              <div>
+              <label htmlFor="cepPonto" >CEP:</label>
+                <input
+                  id="cepPonto"
+                  type="text"
+                  value={cep}
+                  onChange={(e) => setCep(e.currentTarget.value)}
+                  placeholder="xxxxx-abc"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="bairroPonto" >Bairro:</label>
+              <input
+                id="bairroPonto"
+                type="text"
+                value={bairro}
+                onChange={(e) => setBairro(e.currentTarget.value)}
+                placeholder="Sininho"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="logradouroPonto" >Logradouro:</label>
+              <input
+                id="logradouroPonto"
+                type="text"
+                value={logradouro}
+                onChange={(e) => setLogradouro(e.currentTarget.value)}
+                placeholder="Rua Aparecida"
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="numeroPonto" >Numero:</label>
+              <input
+                id="numeroPonto"
+                type="text"
+                value={numero}
+                onChange={(e) => setNumero(e.currentTarget.value)}
+                placeholder="23954"
+                required
+              />
+            </div>
+            <div className="c-forms__double">
+              <div>
+                <label htmlFor="latitudePonto" >Latitude:</label>
+                <input
+                  id="latitudePonto"
+                  type="text"
+                  value={latitude}
+                  onChange={(e) => setLatitude(e.currentTarget.value)}
+                  placeholder="-16.74522"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="longitudePonto" >Longitude:</label>
+                <input
+                  id="longitudePonto"
+                  type="text"
+                  value={longitude}
+                  onChange={(e) => setLongitude(e.currentTarget.value)}
+                  placeholder="-53.89573"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+
+          <hr className="c-forms__divisor"/>
+          
+          
+          <div className="c-forms__information">
+            <div>
+              <label htmlFor="descricaoPonto" >Descricao:</label>
+              <textarea
+                id="descricaoPonto"
+                rows={5}
+                value={descricao}
+                onChange={(e) => setDescricao(e.currentTarget.value)}
+                placeholder="Descrição do Ponto..."
+                maxLength={200}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor="funcionamentoPonto" >Funcionamento:</label>
+              <input
+                id="funcionamentoPonto"
+                type="text"
+                value={funcionamento}
+                onChange={(e) => setFuncionamento(e.currentTarget.value)}
+                placeholder="seg-sex"
+                required
+              />
+            </div>
+            <div className="c-forms__double">
+              <div>
+                <label htmlFor="inicioPonto" >Início:</label>
+                <input
+                  id="inicioPonto"
+                  type="text"
+                  value={horarioInicio}
+                  onChange={(e) => setHorarioInicio(e.currentTarget.value)}
+                  placeholder="07:00"
+                  required
+                />
+              </div>
+              <div>
+                <label htmlFor="terminoPonto" >Término:</label>
+                <input
+                  id="terminoPonto"
+                  type="text"
+                  value={horarioTermino}
+                  onChange={(e) => setHorarioTermino(e.currentTarget.value)}
+                  placeholder="19:00"
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label htmlFor="selectAdministradora" >
+                Administradora
+              </label>
+              {administradorasQueryIsLoading && <Spinner />}
+              {!administradorasQueryIsLoading && !administradorasQueryIsError && (
+                <select 
+                  className="c-forms__information__administrator"
+                  id="selectAdministradora"
+                  value={administradoraId}
+                  onChange={(e) => setAdministradoraId(+e.currentTarget.value)}
+                  required
+                >
+                  <option value={-1} disabled>
+                    Selecione uma Administradora...
+                  </option>
+                  {administradoras?.map(
+                    (adm: {
+                      id: number;
+                      nome: string;
+                      cidade: string;
+                      estado: string;
+                    }) => {
+                      const { id, nome, cidade, estado } = adm;
+                      return (
+                        <option value={id} key={id}>
+                          {nome} - {cidade} - {estado}
+                        </option>
+                      );
+                    }
+                  )}
+                </select>
               )}
-            </select>
-          )}
-          {administradorasQueryIsError && (
-            <p>Erro ao recuperar as administradoras</p>
-          )}
-        </div>
-        <div>
-          <label htmlFor="selectMateriais">
-            Selecione um ou mais materiais
-          </label>
-          {materiaisQueryIsLoading && <Spinner />}
-          {!materiaisQueryIsLoading && !materiaisQueryIsError && (
-            <select
-              id="selectMateriais"
-              multiple
-              value={materiaisIds.map((id) => String(id))}
-              onChange={(e) => {
-                const opts = [...e.currentTarget.selectedOptions];
-                const ids = opts.map((opt) => +opt.value);
-                setMateriaisIds(ids);
-              }}
-              required
-            >
-              <option disabled>Selecione os materiais</option>
-              {materiais?.map(
-                (material: { id: number; nome: string; cor: string }) => {
-                  const { id, nome, cor } = material;
-                  return (
-                    <option value={id} key={id}>
-                      {nome} - {normalizeColorName(cor)}
-                    </option>
-                  );
-                }
+              {administradorasQueryIsError && (
+                <p>Erro ao recuperar as administradoras</p>
               )}
-            </select>
-          )}
-          {administradorasQueryIsError && <p>Erro ao recuperar os materiais</p>}
+            </div>
+            <div>
+              <label htmlFor="selectMateriais" >
+                Materiais:
+              </label>
+              {materiaisQueryIsLoading && <Spinner />}
+              {!materiaisQueryIsLoading && !materiaisQueryIsError && (
+                <select
+                className="c-forms__information__material"
+                  id="selectMateriais"
+                  multiple
+                  value={materiaisIds.map((id) => String(id))}
+                  onChange={(e) => {
+                    const opts = [...e.currentTarget.selectedOptions];
+                    const ids = opts.map((opt) => +opt.value);
+                    setMateriaisIds(ids);
+                  }}
+                  required
+                >
+                  <option disabled>Selecione os Materiais...</option>
+                  {materiais?.map(
+                    (material: { id: number; nome: string; cor: string }) => {
+                      const { id, nome, cor } = material;
+                      return (
+                        <option value={id} key={id}>
+                          {nome} - {normalizeColorName(cor)}
+                        </option>
+                      );
+                    }
+                  )}
+                </select>
+              )}
+              {administradorasQueryIsError && <p>Erro ao recuperar os materiais</p>}
+            </div>
+          </div>
         </div>
         {(materiaisQueryIsError || administradorasQueryIsError) && (
           <p>
@@ -339,7 +362,7 @@ function FormsPontoColeta() {
           </p>
         )}
         {!materiaisQueryIsError && !administradorasQueryIsError && (
-          <button className="registerButton" type="submit">
+          <button className="registerButtonP" type="submit">
             Cadastrar
           </button>
         )}
