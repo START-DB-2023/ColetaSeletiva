@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,9 +22,11 @@ import com.desafio.Coleta_Seletiva.administradora.dto.AdministradoraDTO;
 import com.desafio.Coleta_Seletiva.administradora.dto.mapper.AdministradoraMapper;
 import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
+import com.desafio.Coleta_Seletiva.administradora.services.exception.AdministradoraNotFoundException;
 
 @ExtendWith(MockitoExtension.class)
 public class AdministradoraControllerTest {
+
     @Mock
     private AdministradoraService administradoraService;
 
@@ -61,5 +64,74 @@ public class AdministradoraControllerTest {
         assertEquals(HttpStatus.OK, response.getStatusCode());
         assertEquals(2, response.getBody().size());
     }
-}
 
+    @Test
+    public void getAdministradoraById_ShouldReturnAdministradora() {
+        Long administradoraId = 1L;
+        Administradora administradora = new Administradora();
+        when(administradoraService.obterAdministradoraPorId(administradoraId)).thenReturn(administradora);
+        when(administradoraMapper.mapToDTO(administradora)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<AdministradoraDTO> response = administradoraController
+                .obterAdministradoraPorId(administradoraId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+
+    @Test
+    public void disableAdministradora_ShouldReturnOk() {
+        long administradoraId = 1L;
+        Administradora administradoraDesativada = new Administradora();
+
+        when(administradoraService.desativarAdministradora(administradoraId)).thenReturn(administradoraDesativada);
+        when(administradoraMapper.mapToDTO(administradoraDesativada)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<Object> response = administradoraController.desativarAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+
+    @Test
+    public void disableAdministradora_ShouldReturnNotFound() {
+        long administradoraId = 1L;
+
+        when(administradoraService.desativarAdministradora(administradoraId))
+                .thenThrow(new AdministradoraNotFoundException("Administradora não encontrada"));
+
+        ResponseEntity<Object> response = administradoraController.desativarAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
+        assertEquals("Administradora não encontrada", response.getBody());
+    }
+
+    @Test
+    public void deleteAdministradora_ShouldReturnNoContent() {
+        long administradoraId = 1L;
+
+        ResponseEntity<Object> response = administradoraController.excluirAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertNull(response.getBody());
+    }
+
+    @Test
+    public void updateAdministradora_ShouldReturnOk() {
+        long administradoraId = 1L;
+        AdministradoraDTO novaAdministradoraDTO = new AdministradoraDTO();
+        Administradora novaAdministradora = new Administradora();
+        Administradora administradoraUpdated = new Administradora();
+
+        when(administradoraMapper.mapToEntity(novaAdministradoraDTO)).thenReturn(novaAdministradora);
+        when(administradoraService.atualizarAdministradora(administradoraId, novaAdministradora)).thenReturn(administradoraUpdated);
+        when(administradoraMapper.mapToDTO(administradoraUpdated)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<Object> response = administradoraController.atualizarAdministradora(administradoraId, novaAdministradoraDTO);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+
+
+}
