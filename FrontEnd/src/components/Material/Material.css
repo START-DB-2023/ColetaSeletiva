@@ -1,15 +1,59 @@
 .c-material {
+  border: 5px solid var(--white); /* Variavel dependendo da cor escolhida */
+  border-radius: 15px;
+  background-color: var(--gray);
+  color: var(--white);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  padding: 15px;
   gap: 16px;
+  text-align: center;
 }
+  .c-material__edit{
+    display: flex;
+    justify-content: center;
+  }
+    
+    .c-material__name {
+      color: var(--white); /* Variavel dependendo da cor escolhida */
+      align-self: center;
+      font-size: 24px;
+      font-weight: 700;
+    }
 
-.c-material__name {
-  align-self: center;
-  font-size: 24px;
-  font-weight: 700;
-}
+  .c-material__color__title{
+    font-size: 15px;
+    opacity: 0.7;
+    margin-bottom: 5px;
+  }
+
+  .c-material__color__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+    .c-material__color__example{
+      border: 3px solid var(--white);
+      border-radius: 5px;
+      background-color: #000; /* Variavel dependendo da cor escolhida */
+      width: 25px;
+      height: 25px;
+    }
+
+    .c-material__color__info{
+      font-size: 20px;
+      padding-left: 5px;
+    }
+
+  .c-material__description__title{
+    font-size: 15px;
+    opacity: 0.7;
+  }
+
+  .c-material__description__info{
+    font-size: 20px;
+  }
 
 :where(.c-material) .c-button {
   flex-grow: 0;
