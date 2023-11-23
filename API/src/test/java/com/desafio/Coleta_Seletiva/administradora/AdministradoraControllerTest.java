@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -103,6 +104,16 @@ public class AdministradoraControllerTest {
 
         assertEquals(HttpStatus.NOT_FOUND, response.getStatusCode());
         assertEquals("Administradora não encontrada", response.getBody());
+    }
+
+    @Test
+    public void deleteAdministradora_ShouldReturnNoContent() {
+        long administradoraId = 1L;
+
+        ResponseEntity<Object> response = administradoraController.excluirAdministradora(administradoraId);
+
+        assertEquals(HttpStatus.NO_CONTENT, response.getStatusCode());
+        assertNull(response.getBody());
     }
 
 }
