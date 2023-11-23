@@ -132,5 +132,5 @@ public class AdministradoraController {
                     .body("Erro ao atualizar administradora: " + e.getMessage());
         }
     }
-
+    
 }

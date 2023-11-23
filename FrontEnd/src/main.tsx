@@ -67,7 +67,7 @@ ReactDOM.createRoot(root).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router}></RouterProvider>
-      <ReactQueryDevtools></ReactQueryDevtools>
+      {/* <ReactQueryDevtools></ReactQueryDevtools> */}
     </QueryClientProvider>
   </React.StrictMode>
 );

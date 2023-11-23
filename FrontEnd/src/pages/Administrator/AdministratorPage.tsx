@@ -9,6 +9,7 @@ import {
   MainContainer,
 } from "../../components";
 import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
+import Spinner from "../../components/Spinner/Spinner";
 
 function AdministratorPage() {
   const { administradoras, administradorasQueryIsLoading } =
@@ -32,7 +33,7 @@ function AdministratorPage() {
           </Button>
         </center>
         <section>
-          {administradorasQueryIsLoading && <p>Carregando Informações</p>}
+          {administradorasQueryIsLoading && <Spinner />}
           <List>
             {administradoras?.map(
               (administrator: {
