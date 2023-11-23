@@ -18,9 +18,9 @@ public class MaterialService {
   @Autowired
   private MaterialRepository materialRepository;
 
-  public MaterialService(MaterialRepository materialRepository) {
+ /*  public MaterialService(MaterialRepository materialRepository) {
     this.materialRepository = materialRepository;
-  }
+  } */
 
   @Transactional
   public Material create(Material material) {

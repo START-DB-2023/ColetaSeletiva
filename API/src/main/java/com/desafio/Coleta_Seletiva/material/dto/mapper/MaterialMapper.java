@@ -1,5 +1,6 @@
 package com.desafio.Coleta_Seletiva.material.dto.mapper;
 
+import java.util.Collections;
 import java.util.List;
 
 import org.modelmapper.ModelMapper;
@@ -18,6 +19,9 @@ public class MaterialMapper {
   }
 
   public static List<MaterialResponseDTO> toListDTO(List<Material> materials) {
+    if (materials == null) {
+      return Collections.emptyList(); 
+    }
     return materials.stream().map(material -> toDTO(material)).toList();
   }
 }
