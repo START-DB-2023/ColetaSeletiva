@@ -116,4 +116,22 @@ public class AdministradoraControllerTest {
         assertNull(response.getBody());
     }
 
+    @Test
+    public void updateAdministradora_ShouldReturnOk() {
+        long administradoraId = 1L;
+        AdministradoraDTO novaAdministradoraDTO = new AdministradoraDTO();
+        Administradora novaAdministradora = new Administradora();
+        Administradora administradoraUpdated = new Administradora();
+
+        when(administradoraMapper.mapToEntity(novaAdministradoraDTO)).thenReturn(novaAdministradora);
+        when(administradoraService.atualizarAdministradora(administradoraId, novaAdministradora)).thenReturn(administradoraUpdated);
+        when(administradoraMapper.mapToDTO(administradoraUpdated)).thenReturn(new AdministradoraDTO());
+
+        ResponseEntity<Object> response = administradoraController.atualizarAdministradora(administradoraId, novaAdministradoraDTO);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertNotNull(response.getBody());
+    }
+
+
 }
