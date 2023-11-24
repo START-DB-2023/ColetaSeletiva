@@ -1,14 +1,18 @@
 package com.desafio.Coleta_Seletiva.ponto_coleta;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+
 
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 import com.desafio.Coleta_Seletiva.ponto_coleta.controller.PontoColetaController;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaCreateDTO;
+import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaUpdateDTO;
 import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
 import com.desafio.Coleta_Seletiva.ponto_coleta.services.PontoColetaService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -65,7 +69,7 @@ public class PontoColetaControllerTest {
         PontoColetaCreateDTO pontoColetaCreateDTO = new PontoColetaCreateDTO();
         pontoColetaCreateDTO.setNome("Nome do Ponto");
         pontoColetaCreateDTO.setDescricao("Descrição do Ponto");
-        pontoColetaCreateDTO.setMateriaisIds(Collections.singleton(1L)); 
+        pontoColetaCreateDTO.setMateriaisIds(Collections.singleton(1L));
 
         PontoColeta pontoColeta = new PontoColeta();
         pontoColeta.setId(1L);
@@ -86,6 +90,33 @@ public class PontoColetaControllerTest {
 
     private String asJsonString(Object object) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(object);
+    }
+
+    @Test
+    public void testUpdatePontoColeta() throws Exception {
+        PontoColetaUpdateDTO pontoColetaUpdateDTO = new PontoColetaUpdateDTO();
+        pontoColetaUpdateDTO.setNome("Novo Nome");
+        pontoColetaUpdateDTO.setDescricao("Nova Descrição");
+        pontoColetaUpdateDTO.setHorario_inicio("08:00");
+        pontoColetaUpdateDTO.setHorario_termino("18:00");
+        pontoColetaUpdateDTO.setFuncionamento("Seg-Sex");
+        pontoColetaUpdateDTO.setMateriaisIds(Collections.singleton(1L));
+
+        PontoColeta pontoColetaAtualizado = new PontoColeta();
+        pontoColetaAtualizado.setId(1L);
+        pontoColetaAtualizado.setNome("Novo Nome");
+        pontoColetaAtualizado.setDescricao("Nova Descrição");
+        
+        when(pontoColetaService.update(anyLong(), any())).thenReturn(pontoColetaAtualizado);
+
+        mockMvc.perform(patch("/api/pontos/1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(pontoColetaUpdateDTO)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.nome").value("Novo Nome"))
+                .andExpect(jsonPath("$.descricao").value("Nova Descrição"));
+
+        verify(pontoColetaService, times(1)).update(anyLong(), any());
     }
 
 }
