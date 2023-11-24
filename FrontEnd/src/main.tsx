@@ -16,7 +16,7 @@ import {
   PontoPage,
 } from "./pages";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+// import { ReactQueryDevtools } from "react-query/devtools";
 
 const router = createBrowserRouter([
   {

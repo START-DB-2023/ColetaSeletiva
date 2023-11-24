@@ -1,3 +1,6 @@
+.c-popup {
+  font-size: 16px;
+}
 .c-label {
   display: block;
   font-size: 24px;
@@ -9,4 +12,42 @@
   font-size: 16px;
   width: 100%;
   padding: 8px 4px;
+}
+
+.c-popup__materials {
+  border-top: 2px solid black;
+  margin-top: 4px;
+  padding-top: 4px;
+  font-size: 18px;
+}
+
+.c-popup__materials-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 6px;
+}
+
+.c-popup__title {
+  font-weight: 700;
+  text-align: center;
+  font-size: 20px;
+}
+
+.c-popup__description {
+  color: #777;
+  text-align: left;
+}
+
+.c-popup__material-item {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.c-ping {
+  display: inline-block;
+  width: 8px;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  background-color: red;
 }
