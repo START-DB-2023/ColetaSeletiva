@@ -6,8 +6,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
-
-
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 import com.desafio.Coleta_Seletiva.ponto_coleta.controller.PontoColetaController;
@@ -17,6 +15,10 @@ import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
 import com.desafio.Coleta_Seletiva.ponto_coleta.services.PontoColetaService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.hamcrest.Matchers.hasSize;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -34,7 +36,9 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 @ExtendWith(MockitoExtension.class)
 public class PontoColetaControllerTest {
@@ -106,7 +110,7 @@ public class PontoColetaControllerTest {
         pontoColetaAtualizado.setId(1L);
         pontoColetaAtualizado.setNome("Novo Nome");
         pontoColetaAtualizado.setDescricao("Nova Descrição");
-        
+
         when(pontoColetaService.update(anyLong(), any())).thenReturn(pontoColetaAtualizado);
 
         mockMvc.perform(patch("/api/pontos/1")
@@ -117,6 +121,30 @@ public class PontoColetaControllerTest {
                 .andExpect(jsonPath("$.descricao").value("Nova Descrição"));
 
         verify(pontoColetaService, times(1)).update(anyLong(), any());
+    }
+
+    @Test
+    public void testGetAllPontosDeColeta() throws Exception {
+        PontoColeta pontoColeta1 = new PontoColeta();
+        pontoColeta1.setId(1L);
+        pontoColeta1.setNome("Ponto 1");
+        pontoColeta1.setDescricao("Descrição do Ponto 1");
+
+        PontoColeta pontoColeta2 = new PontoColeta();
+        pontoColeta2.setId(2L);
+        pontoColeta2.setNome("Ponto 2");
+        pontoColeta2.setDescricao("Descrição do Ponto 2");
+
+        List<PontoColeta> pontos = Arrays.asList(pontoColeta1, pontoColeta2);
+
+        // Configuração do mock do PontoColetaService
+        when(pontoColetaService.getAllPontosDeColeta()).thenReturn(pontos);
+
+        mockMvc.perform(get("/api/pontos"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$", hasSize(2)))
+                .andExpect(jsonPath("$[0].nome").value("Ponto 1"))
+                .andExpect(jsonPath("$[1].nome").value("Ponto 2"));
     }
 
 }
