@@ -1,17 +1,168 @@
-.c-point {
+.c-CP{
+    background-color: #D9D9D9;
+    border: 5px solid #314795;
+    border-radius: 15px;
     display: flex;
-    flex-direction: column;
+    padding: 8px;
     justify-content: flex-start;
-    gap: 16px;
+    justify-items: flex-start;
+    gap: 1vw;
+    width: fit-content;
+    color: #314795;
+    
   }
   
-  .c-CP__info__point__name {
-    align-self: center;
-    font-size: 24px;
-    font-weight: 700;
+  .c-CP__info{
+    width: 15vw;
+    padding: 0.2vw 0 0 0.3vw;
   }
+    .c-CP__info__main__name{
+      align-self: center;
+      font-size: 24px;
+      font-weight: 700;
+      padding-bottom: 5px;
+    }
+
+    .c-CP__info__main__description{
+      height: 7vw;
+      font-size: 16px;
+    }
+
+  .c-CP__info__mapInfo{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+    .c-CP__info__mapInfo__lon__title,
+    .c-CP__info__mapInfo__lat__title{
+      margin-bottom: 4px;
+    }
+
+    .c-CP__title{
+      font-size: 14px;
+      opacity: 0.7;
+    }
+
+    .c-CP__info__mapInfo__lon__text,
+    .c-CP__info__mapInfo__lat__text{
+      font-size: 16px;
+    }
+
+    .c-CP__info__mapInfo__seeOnMap{
+      width: 3.5vw;
+      font-size: 12px;
+      background-color: #fff;
+      color: #314795;
+      border: 3px solid #314795;
+      border-radius: 5px;
+      margin-left: 10px;
+    }
+
+  .c-CP__info__administrator{
+    margin-top: 2vw;
+  }
+
+    .c-CP__info__administrator__info{
+      display: flex;
+      align-items: center;
+    }
+
+    .c-CP__info__administrator__info__image{
+      width: 30px;
+      height: auto;
+      border: 1px solid #314795;
+      border-radius: 5px;
+      margin: 2px;
+    }
+
+    .c-CP__info__administrator__info__main__name{
+      font-size: 16px;
+      margin-left: 3px;
+    }
+
+    .c-CP__info__administrator__info__main__local{
+      font-size: 14 px;
+      margin-left: 3px;
+      opacity: 0.7;
+    }
+
+  .c-CP__info__materials{
+    margin-top: 1vw;
+    height: auto;
+  }
+
+    .c-CP__info__materials__wrapper{
+      flex-wrap: wrap;
+      display: inline-flex;
+      margin-top: 5px;
+      gap: 5px;
+    }
+
+      .c-CP__info__materials__single{
+        height: 20px;
+        padding: 0 10px;
+        border-radius: 5px;
+        display: grid;
+        place-items: center;
+      }
+
+      .c-CP__info__materials__text{
+        color: #fff;
+        padding: 0 10px;
+      }
+
+    .c-CP__disponibility__adressInfo{
+      margin: 2px 0 10px 0;
+    }
+      .c-CP__disponibility__adressInfo__mainInfo{
+        font-size: 16px;
+      }
+
+      .c-CP__disponibility__adressInfo__secondInfo{
+        font-size: 14px;
+      }
+
+      .c-CP__disponibility__adressInfo__otherInfo{
+        font-size: 14px;
+        opacity: 0.7;
+      }
+  
+        .c-CP__disponibility__Wrapper{
+          margin-bottom: 10px;
+          }
+
+        .funcionality__days{
+          font-size: 20px;
+        }
+
+      .c-CP__disponibility__wrapper__hour{
+        display: flex;
+        margin: 10px 0;
+        gap: 16px
+      }
+
+      .c-CP__disponibility__wrapper3__closing__info,
+      .c-CP__disponibility__wrapper3__opening__info{
+        font-size: 18px;
+      }
+    
   
   :where(.c-point) .c-button {
     flex-grow: 0;
+  }
+
+  .c-CP__info__materials__single{
+    width: fit-content;
+    padding: 2px 5px;
+  }
+  
+  .c-CP__disponibility__wrapper1__image{
+    background-color: #fff;
+    color: #000;
+    border: 3px solid #314795;
+    border-radius: 10px;
+    width: 12vw;
+    height: auto;
   }
   
