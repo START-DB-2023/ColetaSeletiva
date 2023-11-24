@@ -9,6 +9,7 @@ import "leaflet/dist/leaflet.css";
 import CollectionPointSearch from "../../components/CollectionPointSearch/CollectionPointSearch";
 // import { LatLngTuple } from "leaflet";
 
+import "./SearchPage.css";
 type Material = {
   id: number;
   nome: string;
@@ -89,8 +90,8 @@ function PageSearch() {
       <Navigation />
       <MainContainer>
         <div>
-          <label htmlFor="selectAdministradora">
-            Selecione uma administradora
+          <label htmlFor="selectAdministradora" className="c-label">
+            Selecione uma administradora:
           </label>
           {administradorasQueryIsLoading && <Spinner />}
           {!administradorasQueryIsLoading && !administradorasQueryIsError && (
@@ -100,6 +101,7 @@ function PageSearch() {
               defaultValue={-1}
               onChange={(e) => setAdministradoraId(+e.currentTarget.value)}
               required
+              className="c-input"
             >
               <option value={-1} key={-1}>
                 Todas
@@ -123,12 +125,15 @@ function PageSearch() {
           )}
         </div>
         <div>
-          <label htmlFor="filtro">Filtrar resultados por nome:</label>
+          <label htmlFor="filtro" className="c-label">
+            Filtrar resultados por nome:
+          </label>
           <input
             type="text"
             placeholder="Filtre por nome"
             value={filtro}
             onChange={(e) => setFiltro(e.currentTarget.value)}
+            className="c-input"
           />
         </div>
         <section>
