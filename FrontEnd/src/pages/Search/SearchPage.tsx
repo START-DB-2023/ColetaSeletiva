@@ -6,10 +6,9 @@ import useQueryPontosByAdm from "../../hooks/CollectionPoint/useQueryPontosByAdm
 import useQueryAdministradoras from "../../hooks/Administrators/useQueryAdministradoras";
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import CollectionPointSearch from "../../components/CollectionPointSearch/CollectionPointSearch";
-// import { LatLngTuple } from "leaflet";
 
 import "./SearchPage.css";
+import CollectionPoint from "../../components/CollectionPoint/CollectionPoint";
 type Material = {
   id: number;
   nome: string;
@@ -140,7 +139,13 @@ function PageSearch() {
           {pontosQueryIsLoading && <Spinner />}
           <List>
             {lista?.map((ponto: Ponto) => {
-              return <CollectionPointSearch key={ponto.id} ponto={ponto} />;
+              return (
+                <CollectionPoint
+                  key={ponto.id}
+                  ponto={ponto}
+                  hasMapLink={false}
+                />
+              );
             })}
           </List>
         </section>
@@ -165,15 +170,61 @@ function PageSearch() {
                 position={[ponto.latitude, ponto.longitude]}
               >
                 <Popup>
-                  <div>
-                    <h2>{ponto.nome}</h2>
-                    <p>{ponto.descricao}</p>
-                    <p>Materiais:</p>
-                    <ul>
+                  <div className="c-popup">
+                    <h2 className="c-popup__title">{ponto.nome}</h2>
+                    <p>Administrador por: {ponto.administradora.nome}</p>
+                    <p>
+                      {ponto.logradouro}, {ponto.numero}, {ponto.bairro},{" "}
+                      {ponto.cep}
+                    </p>
+                    <p className="c-popup__description">{ponto.descricao}</p>
+                    <p className="c-popup__materials">Materiais:</p>
+                    <ul className="c-popup__materials-list">
                       {ponto?.materiais?.map((material) => {
+                        let spanColor = material.cor;
+                        switch (spanColor) {
+                          case "AMARELO":
+                            spanColor = "#c4b53d";
+                            break;
+                          case "VERDE":
+                            spanColor = "#3B7732";
+                            break;
+                          case "AZUL":
+                            spanColor = "#4460F4";
+                            break;
+                          case "VERMELHO":
+                            spanColor = "#FF3B3B";
+                            break;
+                          case "CINZA":
+                            spanColor = "#333";
+                            break;
+                          case "MARROM":
+                            spanColor = "#964B00";
+                            break;
+                          case "ROXO":
+                            spanColor = "#800080";
+                            break;
+                          case "LARANJA":
+                            spanColor = "#FFA500";
+                            break;
+                          case "BRANCO":
+                            spanColor = "#ddd";
+                            break;
+                          case "PRETO":
+                          default:
+                            spanColor = "#000";
+                            break;
+                        }
                         return (
-                          <li key={material.id}>
-                            {material.nome} - {material.cor}
+                          <li
+                            className="c-popup__material-item"
+                            key={material.id}
+                          >
+                            {material.nome}
+                            <span
+                              className="c-ping"
+                              style={{ backgroundColor: spanColor }}
+                            ></span>
                           </li>
                         );
                       })}
