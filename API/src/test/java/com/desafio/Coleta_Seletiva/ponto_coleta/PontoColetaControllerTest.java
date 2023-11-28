@@ -6,19 +6,25 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
+
+import com.desafio.Coleta_Seletiva.administradora.model.Administradora;
 import com.desafio.Coleta_Seletiva.administradora.services.AdministradoraService;
+import com.desafio.Coleta_Seletiva.material.model.Material;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
 import com.desafio.Coleta_Seletiva.ponto_coleta.controller.PontoColetaController;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaCreateDTO;
 import com.desafio.Coleta_Seletiva.ponto_coleta.dto.PontoColetaUpdateDTO;
+import com.desafio.Coleta_Seletiva.ponto_coleta.dto.mapper.PontoColetaMapper;
 import com.desafio.Coleta_Seletiva.ponto_coleta.model.PontoColeta;
+import com.desafio.Coleta_Seletiva.ponto_coleta.repositories.PontoColetaRepository;
 import com.desafio.Coleta_Seletiva.ponto_coleta.services.PontoColetaService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import static org.hamcrest.Matchers.hasSize;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -54,6 +60,9 @@ public class PontoColetaControllerTest {
 
     @InjectMocks
     private PontoColetaController pontoColetaController;
+
+    @Mock
+    private PontoColetaRepository pontoColetaRepository;
 
     private MockMvc mockMvc;
 
@@ -147,4 +156,32 @@ public class PontoColetaControllerTest {
                 .andExpect(jsonPath("$[1].nome").value("Ponto 2"));
     }
 
+    @Test
+    public void testCreatePontoColetaWithIsolation() throws Exception {
+        PontoColetaCreateDTO pontoColetaCreateDTO = new PontoColetaCreateDTO();
+        pontoColetaCreateDTO.setNome("Nome do Ponto");
+        pontoColetaCreateDTO.setDescricao("Descrição do Ponto");
+        pontoColetaCreateDTO.setMateriaisIds(Collections.singleton(1L));
+
+        PontoColeta pontoColeta = new PontoColeta();
+        pontoColeta.setId(1L);
+        pontoColeta.setNome("Nome do Ponto");
+        pontoColeta.setDescricao("Descrição do Ponto");
+
+        // Configuração dos mocks para isolar o serviço pontoColetaService
+        when(pontoColetaService.create(any())).thenReturn(pontoColeta);
+
+        // Configuração do mockMvc
+        mockMvc = MockMvcBuilders.standaloneSetup(pontoColetaController).build();
+
+        mockMvc.perform(post("/api/pontos")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(pontoColetaCreateDTO)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.nome").value("Nome do Ponto"))
+                .andExpect(jsonPath("$.descricao").value("Descrição do Ponto"));
+
+        // Verificação se o método create do pontoColetaService foi chamado
+        verify(pontoColetaService, times(1)).create(any());
+    }
 }
