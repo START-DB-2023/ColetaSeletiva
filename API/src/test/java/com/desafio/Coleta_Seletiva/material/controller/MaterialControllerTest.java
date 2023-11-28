@@ -1,12 +1,10 @@
 package com.desafio.Coleta_Seletiva.material.controller;
 
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import java.util.List;
-import static org.assertj.core.api.Assertions.assertThat;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -16,7 +14,6 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.test.util.ReflectionTestUtils;
 import org.springframework.test.web.servlet.MockMvc;
@@ -25,13 +22,8 @@ import com.desafio.Coleta_Seletiva.material.dto.MaterialCreateDTO;
 import com.desafio.Coleta_Seletiva.material.dto.mapper.MaterialMapper;
 import com.desafio.Coleta_Seletiva.material.model.Cor;
 import com.desafio.Coleta_Seletiva.material.model.Material;
-import com.desafio.Coleta_Seletiva.material.repositories.MaterialRepository;
 import com.desafio.Coleta_Seletiva.material.services.MaterialService;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
-import jakarta.transaction.Transactional;
-
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @ExtendWith(MockitoExtension.class)
@@ -42,9 +34,6 @@ public class MaterialControllerTest {
 
   @Mock
   private MaterialService materialService;
-
-  @Autowired
-  private MaterialRepository materialRepository;
 
   MockMvc mockMvc;
 
